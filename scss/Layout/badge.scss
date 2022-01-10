@@ -1,0 +1,14 @@
+.tag {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 37px;
+  min-width: 100px;
+  margin-right: 10px;
+
+  &__text {
+    margin-left: 5px;
+  }
+}

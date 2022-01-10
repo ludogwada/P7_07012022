@@ -1,0 +1,35 @@
+.card-recipe {
+  height: 364px !important;
+  width: 380px !important;
+  left: 0px;
+  top: 0px;
+  margin-bottom: 60px;
+  color: $secondary;
+}
+
+.recipe-img {
+  height: 178px !important;
+  width: 380px !important;
+  background-color: $greyCard;
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 18px !important;
+}
+.card-text {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+}
+
+.recipe-text {
+  font-size: 12px;
+  line-height: 100%;
+}

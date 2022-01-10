@@ -1,1 +1,9 @@
+@import './utils/variables_overrides.scss';
+@import './base/params.scss';
+
+@import './Layout/search-bar.scss';
+@import './Layout/dropdown.scss';
+@import './Layout/card.scss';
+@import './Layout/badge.scss';
+
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

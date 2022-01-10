@@ -1,0 +1,22 @@
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dropdown-size {
+  width: auto;
+  min-width: 170px;
+  min-height: 70px;
+  margin-right: 20px;
+}
+
+.btn-dropdown {
+  display: flex !important;
+  flex-direction: row !important;
+  color: white !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+}
+
+.icon-dropdown {
+  margin-left: 50px;
+}
