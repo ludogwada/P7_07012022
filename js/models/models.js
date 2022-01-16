@@ -1,4 +1,4 @@
-import recipes from '../../data/recipes';
+import { recipes } from '../../data/recipes.js';
 
 class DataRecipe {
   constructor() {
@@ -7,19 +7,20 @@ class DataRecipe {
 
   getDatas() {
     /*
-
-        tri_à_bulles_optimisé(Tableau T)
+    
+    tri_à_bulles_optimisé(Tableau T)
     pour i allant de (taille de T)-1 à 1
-        tableau_trié := vrai
-        pour j allant de 0 à i-1
-            si T[j+1] < T[j]
-                (T[j+1], T[j]) = (T[j], T[j+1])
-                tableau_trié := faux
-        si tableau_trié
-            fin tri_à_bulles_optimisé
-        */
+    tableau_trié := vrai
+    pour j allant de 0 à i-1
+    si T[j+1] < T[j]
+    (T[j+1], T[j]) = (T[j], T[j+1])
+    tableau_trié := faux
+    si tableau_trié
+    fin tri_à_bulles_optimisé
+    */
 
     for (let index = 0; index < this.datas.length; index++) {
+      console.log();
       tableau_trie = true;
       for (let j = 0; j < index - 1; j++) {
         if (this.datas[j + 1] < this.datas[j]) {
@@ -36,3 +37,5 @@ class DataRecipe {
     return this.datas;
   }
 }
+const data = new DataRecipe();
+console.log(data);
