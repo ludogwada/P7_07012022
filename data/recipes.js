@@ -20,7 +20,7 @@ export const recipes = [
       },
       {
         ingredient: 'Sucre',
-        quantite: 30,
+        quantity: 30,
         unit: 'grammes',
       },
       {
@@ -101,7 +101,7 @@ export const recipes = [
       {
         ingredient: "Huile d'olive",
         quantity: 1,
-        unit: 'cuillères à soupe',
+        unit: 'cuillère à soupe',
       },
     ],
     time: 80,
@@ -181,7 +181,7 @@ export const recipes = [
       {
         ingredient: 'Moutarde de Dijon',
         quantity: 1,
-        unite: 'cuillères à soupe',
+        unite: 'cuillère à soupe',
       },
     ],
     time: 45,
@@ -614,7 +614,7 @@ export const recipes = [
       {
         ingredient: 'Jus de citron',
         quantity: 1,
-        unit: 'cuillères à soupe',
+        unit: 'cuillère à soupe',
       },
       {
         ingredient: 'Glaçons',
@@ -718,7 +718,7 @@ export const recipes = [
       {
         ingredient: "huile d'olive",
         quantity: 1,
-        unit: 'cuillères à soupe',
+        unit: 'cuillère à soupe',
       },
     ],
     time: 30,
@@ -759,7 +759,7 @@ export const recipes = [
       {
         ingredient: 'Crème Fraiche',
         quantity: 1,
-        unit: 'cuillères à soupe',
+        unit: 'cuillère à soupe',
       },
     ],
     time: 30,
@@ -1186,7 +1186,7 @@ export const recipes = [
       {
         ingredient: 'Jus de citron',
         quantity: 1,
-        unit: 'cuillères à soupe',
+        unit: 'cuillère à soupe',
       },
     ],
     time: 5,
@@ -1250,7 +1250,7 @@ export const recipes = [
       {
         ingredient: 'Cumin',
         quantity: 1,
-        unit: 'cuillères à café',
+        unit: 'cuillère à café',
       },
       {
         ingredient: 'Noix de muscade',
@@ -1295,7 +1295,7 @@ export const recipes = [
       {
         ingredient: 'Maïzena',
         quantity: 1,
-        unit: 'cuillères à soupe',
+        unit: 'cuillère à soupe',
       },
     ],
     time: 35,
@@ -1428,7 +1428,7 @@ export const recipes = [
       {
         ingredient: 'Bicarbonate',
         quantity: 1,
-        unit: 'cuillères à café',
+        unit: 'cuillère à café',
       },
     ],
     time: 10,

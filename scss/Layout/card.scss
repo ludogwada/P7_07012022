@@ -1,15 +1,25 @@
 .card-recipe {
   height: 364px !important;
+  max-height: 364px !important;
   width: 380px !important;
-  left: 0px;
-  top: 0px;
-  margin-bottom: 60px;
   color: $secondary;
+}
+
+.card-title {
+  width: 250px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-body {
+  max-height: 186px;
 }
 
 .recipe-img {
   height: 178px !important;
-  width: 380px !important;
+  min-height: 178px !important;
+  width: 100% !important;
   background-color: $greyCard;
 }
 
@@ -27,9 +37,13 @@ h5 {
   font-size: 12px;
   line-height: 14px;
   font-weight: bold;
+  padding-right: 10px;
 }
 
 .recipe-text {
+  text-overflow: ellipsis;
   font-size: 12px;
   line-height: 100%;
+  width: 171px;
+  height: 109px;
 }
