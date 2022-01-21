@@ -27,11 +27,11 @@ function recipeDisplay(recipeList) {
         if (e.unit === 'grammes') e.unit = 'g';
         else if (e.unit === 'cuillères à soupe') e.unit = 'cuillères';
         else if (e.unit === 'cuillère à soupe') e.unit = 'cuillère';
-        return `<li><strong>${e.ingredient}</strong><span> ${
-          e.quantity ? ' :' : ''
-        } ${e.quantity ? e.quantity : ' '} ${
-          e.unit ? e.unit : ' '
-        } </span> </li>`;
+        let quantite =
+          (e.quantity ? ' :' : '') + (e.quantity ? e.quantity : ' ');
+        let unite = e.unit ? e.unit : ' ';
+
+        return `<li><strong>${e.ingredient}</strong><span>${quantite} ${unite}</span> </li>`;
       })
       .join('')}
   </ul>
