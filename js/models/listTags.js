@@ -3,10 +3,12 @@ import { recipes } from '../../data/recipes.js';
 const list1 = document.querySelector('.menu1');
 const list2 = document.querySelector('.menu2');
 const list3 = document.querySelector('.menu3');
+const arrayIngredients = [];
+const arrayAppliance = [];
+const arrayUstensils = [];
 
 function listTag() {
   ////Ingredient Tag////
-  const arrayIngredients = [];
   recipes.forEach((recipe) =>
     recipe.ingredients.forEach((el) => arrayIngredients.push(el.ingredient))
   );
@@ -23,7 +25,6 @@ function listTag() {
     list1.appendChild(listIngredient);
   });
   ////Appliance Tag////
-  const arrayAppliance = [];
   recipes.forEach((recipes) => {
     arrayAppliance.push(recipes.appliance);
   });
@@ -40,7 +41,7 @@ function listTag() {
     list2.appendChild(listAplliance);
   });
   ////Ustensil Tag////
-  const arrayUstensils = [];
+
   recipes.forEach((recipe) =>
     recipe.ustensils.forEach((ustensil) =>
       arrayUstensils.push(ustensil.toLowerCase())

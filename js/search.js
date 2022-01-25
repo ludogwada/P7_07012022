@@ -48,9 +48,9 @@ searchInput.addEventListener('input', filterData);
 //// CONTROLLER ////
 
 function filterData(e) {
-  const searchedSrting = e.target.value.toLowerCase();
+  const searchedString = e.target.value.toLowerCase();
   searchResult.innerHTML = '';
-  if (searchedSrting.length >= 3) {
+  if (searchedString.length >= 3) {
     /*let dataRecipe = new DataRecipe(recipes);
 
     recipeDisplay(dataRecipe.getDatas());*/
@@ -59,15 +59,14 @@ function filterData(e) {
 
     const filteredArr = recipes.filter(
       (el) =>
-        el.name.toLowerCase().includes(searchedSrting) ||
-        // el.ingredients.includes(searchedSrting) ||
-        el.ustensils.includes(searchedSrting) ||
-        el.appliance.toLowerCase().includes(searchedSrting)
+        el.name.toLowerCase().includes(searchedString) ||
+        el.description.toLowerCase().includes(searchedString)
+      ////ingredient?///
     );
     recipeDisplay(filteredArr);
 
     //// MODEL ////
-  } else if (searchedSrting.length === 0) {
+  } else if (searchedString.length === 0) {
     recipeDisplay(recipes);
   }
 }
