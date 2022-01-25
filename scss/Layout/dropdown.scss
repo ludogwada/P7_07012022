@@ -3,10 +3,44 @@
 }
 
 .dropdown-size {
-  width: auto;
   min-width: 170px;
   min-height: 70px;
   margin-right: 20px;
+  margin-bottom: 0px;
+}
+
+.dropdown-input {
+  color: white !important;
+  border: none;
+}
+
+#dropdown {
+  width: auto !important;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+}
+
+input::-moz-placeholder {
+  color: white;
+}
+
+input:-ms-input-placeholder {
+  color: white;
+}
+
+input::-ms-input-placeholder {
+  color: white;
+}
+
+input::placeholder {
+  color: white;
+}
+
+input:focus-visible {
+  background: transparent;
+  outline: none;
 }
 
 .btn-dropdown {
@@ -19,4 +53,21 @@
 
 .icon-dropdown {
   margin-left: 50px;
+}
+
+.dropdown-menu.show {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+.menu1 {
+  @include menuDropdown;
+}
+
+.menu2 {
+  @include menuDropdown;
+}
+
+.menu3 {
+  @include menuDropdown;
 }

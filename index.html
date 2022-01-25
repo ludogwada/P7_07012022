@@ -36,28 +36,28 @@
             </ul>
           </div>
         <div class="js-drpodown d-flex mx-4 mb-5">
-          <div id="dropdown">
-            <button class="btn bg-blue btn-dropdown dropdown-toggle dropdown-size align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Ingrédients
+          <div id="dropdown"class="input-group dropdown-size">
+            <button class="btn bg-blue btn-dropdown dropdown-toggle align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <input type="text" class="bg-blue form-control-lg dropdown-input input1" placeholder="Ingrédients"> 
               <i class="fas fa-angle-down icon-dropdown "></i>
             </button>
-            <ul class="dropdown-menu menu1" aria-labelledby="dropdownMenuButton1">
+            <ul class="dropdown-menu menu1 bg-blue overflow-auto" aria-labelledby="dropdownMenuButton1">
             </ul>
           </div>
-          <div id="dropdown">
-            <button class="btn bg-green btn-dropdown dropdown-toggle dropdown-size align-items-center" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-              Appareil
+          <div id="dropdown" class="input-group dropdown-size">
+            <button class="btn bg-green btn-dropdown dropdown-toggle  align-items-center" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <input type="text" class="bg-green form-control-lg dropdown-input" placeholder="Appareils"> 
               <i class="fas fa-angle-down icon-dropdown"></i>
             </button>
-            <ul class="dropdown-menu menu2" aria-labelledby="dropdownMenuButton2">
+            <ul class="dropdown-menu menu2 bg-green overflow-auto"aria-labelledby="dropdownMenuButton2">
             </ul>
           </div>
-          <div id="dropdown">
-            <button class="btn bg-red btn-dropdown dropdown-toggle dropdown-size align-items-center" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-              Ustensiles
+          <div id="dropdown" class="input-group dropdown-size ">
+            <button class="btn bg-red btn-dropdown dropdown-toggle align-items-center" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+              <input type="text" class="bg-red form-control-lg dropdown-input" placeholder="Ustensiles"> 
               <i class="fas fa-angle-down icon-dropdown"></i>
             </button>
-            <ul class="dropdown-menu menu3" aria-labelledby="dropdownMenuButton3">
+            <ul class="dropdown-menu menu3 bg-red overflow-auto" aria-labelledby="dropdownMenuButton3">
             </ul>
           </div>
         </div>
@@ -68,6 +68,7 @@
     <script type="module" src="./data/recipes.js"></script>
     <script type="module" src="./js/models/models.js"></script>
     <script type="module" src="./js/models/listTags.js"></script>
+    <script type="module" src="./js/models/inputTag.js"></script>
     <script type="module" src="./js/search.js"></script>
     <script type="module" src="./js/index.js"></script>
   </body>
