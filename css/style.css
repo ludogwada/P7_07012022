@@ -67,17 +67,17 @@ input:focus-visible {
 
 .menu1 {
   width: 600px;
-  height: 300px;
+  max-height: 300px;
 }
 
 .menu2 {
   width: 600px;
-  height: 300px;
+  max-height: 300px;
 }
 
 .menu3 {
   width: 600px;
-  height: 300px;
+  max-height: 300px;
 }
 
 .card-recipe {

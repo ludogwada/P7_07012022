@@ -1,8 +1,3 @@
-import { recipes } from '../data/recipes.js';
-//import { DataRecipe } from './models/models.js';
-
-//// VUE ////
-const searchInput = document.querySelector('#search');
 const searchResult = document.querySelector('.js-card');
 
 function recipeDisplay(recipeList) {
@@ -42,35 +37,4 @@ function recipeDisplay(recipeList) {
     searchResult.appendChild(listItem);
   });
 }
-searchInput.addEventListener('input', filterData);
-//// END VUE ////
-
-//// CONTROLLER ////
-
-function filterData(e) {
-  const searchedString = e.target.value.toLowerCase();
-  searchResult.innerHTML = '';
-  if (searchedString.length >= 3) {
-    /*let dataRecipe = new DataRecipe(recipes);
-
-    recipeDisplay(dataRecipe.getDatas());*/
-
-    //// MODEL ////
-
-    const filteredArr = recipes.filter(
-      (el) =>
-        el.name.toLowerCase().includes(searchedString) ||
-        el.description.toLowerCase().includes(searchedString)
-      ////ingredient?///
-    );
-    recipeDisplay(filteredArr);
-
-    //// MODEL ////
-  } else if (searchedString.length === 0) {
-    recipeDisplay(recipes);
-  }
-}
-
-recipeDisplay(recipes);
-
-//// CONTROLLER ////
+export { recipeDisplay };
