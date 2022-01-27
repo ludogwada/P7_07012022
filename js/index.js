@@ -19,12 +19,10 @@ function filterData(e) {
       ////ingredient?///
     );
     recipeDisplay(filteredArr);
-    listTag(filteredArr);
   } else if (searchedString.length === 0) {
-    listTag(recipes);
     recipeDisplay(recipes);
   }
   console.log(filteredArr);
 }
-recipeDisplay(recipes);
 listTag(recipes);
+recipeDisplay(recipes);
