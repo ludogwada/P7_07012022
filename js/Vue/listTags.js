@@ -16,10 +16,10 @@ export function listTag(e) {
     const listIngredient = document.createElement('li');
     listIngredient.setAttribute(
       'class',
-      'dropdown-item text-white overflow-hidden'
+      'dropdown-item ingredient-item text-white overflow-hidden'
     );
     listIngredient.setAttribute('style', 'width: 190px');
-    listIngredient.innerHTML = `<a>${e}</a>`;
+    listIngredient.innerHTML = `${e}`;
     list1.appendChild(listIngredient);
   });
 
@@ -33,10 +33,10 @@ export function listTag(e) {
     const listAplliance = document.createElement('li');
     listAplliance.setAttribute(
       'class',
-      'dropdown-item text-white overflow-hidden'
+      'dropdown-item appareil-item text-white overflow-hidden'
     );
     listAplliance.setAttribute('style', 'width: 190px');
-    listAplliance.innerHTML = `<a>${el}</a>`;
+    listAplliance.innerHTML = `${el}`;
     list2.appendChild(listAplliance);
   });
 
@@ -52,10 +52,10 @@ export function listTag(e) {
     const listUstensils = document.createElement('li');
     listUstensils.setAttribute(
       'class',
-      'dropdown-item text-white overflow-hidden'
+      'dropdown-item ustensil-item text-white overflow-hidden'
     );
     listUstensils.setAttribute('style', 'width: 190px');
-    listUstensils.innerHTML = `<a>${el}</a>`;
+    listUstensils.innerHTML = ` ${el}`;
     list3.appendChild(listUstensils);
   });
 }

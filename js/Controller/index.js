@@ -1,6 +1,6 @@
-import { listTag } from '../js/models/listTags.js';
-import { recipes } from '../data/recipes.js';
-import { recipeDisplay } from './Card.js';
+import { listTag } from '../Vue/listTags.js';
+import { recipes } from '../../data/recipes.js';
+import { recipeDisplay } from '../Vue/Card.js';
 
 const searchInput = document.querySelector('#search');
 const searchResult = document.querySelector('.js-card');

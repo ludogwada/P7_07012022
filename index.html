@@ -27,17 +27,14 @@
             </div>
           </form>
         </div>
-          <div id="tags" class="mx-4">
-            <ul class="d-flex p-0 mt-2 badge flex-row list-unstyled">
-              <li class=" tag bg-blue">
-                <p class="mb-0 tag__text">#####</p>
-                <i class="far fa-times-circle"></i>
-              </li>
+          <div  class="mx-4 mt-4">
+            <ul id="tags" class ='d-flex p-0 mt-2 badge flex-row list-unstyled'>
+
             </ul>
           </div>
         <div class="js-drpodown d-flex mx-4 mb-5">
           <div id="dropdown"class="input-group dropdown-size">
-            <div class="btn bg-blue btn-dropdown dropdown-toggle align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="btn bg-blue btn-dropdown dropdown-toggle align-items-center"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <input type="text" class="bg-blue form-control-lg dropdown-input " placeholder="Ingrédients"> 
               <i class="fas fa-angle-down icon-dropdown "></i>
             </div>
@@ -45,7 +42,7 @@
             </ul>
           </div>
           <div id="dropdown" class="input-group dropdown-size">
-            <div class="btn bg-green btn-dropdown dropdown-toggle  align-items-center" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="btn bg-green btn-dropdown dropdown-toggle  align-items-center" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
             <input type="text" class="bg-green form-control-lg dropdown-input" placeholder="Appareils"> 
               <i class="fas fa-angle-down icon-dropdown"></i>
             </div>
@@ -53,7 +50,7 @@
             </ul>
           </div>
           <div id="dropdown" class="input-group dropdown-size ">
-            <div class="btn bg-red btn-dropdown dropdown-toggle align-items-center" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="btn bg-red btn-dropdown dropdown-toggle align-items-center" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
               <input type="text" class="bg-red form-control-lg dropdown-input" placeholder="Ustensiles"> 
               <i class="fas fa-angle-down icon-dropdown"></i>
             </div>
@@ -67,9 +64,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="module" src="./data/recipes.js"></script>
     <script type="module" src="./js/models/models.js"></script>
-    <script type="module" src="./js/models/listTags.js"></script>
-    <script type="module" src="./js/card.js"></script>
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/tagFilter.js"></script>
+    <script type="module" src="./js/Vue/listTags.js"></script>
+    <script type="module" src="./js/Vue/Card.js"></script>
+    <script type="module" src="./js/Controller/index.js"></script>
+    <script type="module" src="./js/Controller/tagFilter.js"></script>
   </body>
 </html>
