@@ -16,7 +16,7 @@ function addTag() {
       tagText.innerHTML = `${selectIngredient.innerHTML}`;
 
       const tagIcon = document.createElement('i');
-      tagIcon.setAttribute('class', 'mx-1 far fa-times-circle');
+      tagIcon.setAttribute('class', 'mx-1 far fa-times-circle fa-2x');
       tags.appendChild(tagSelectI);
       tagSelectI.appendChild(tagText);
       tagSelectI.appendChild(tagIcon);
@@ -33,7 +33,7 @@ function addTag() {
       tagText.innerHTML = `${selectAppareil.innerHTML}`;
 
       const tagIcon = document.createElement('i');
-      tagIcon.setAttribute('class', 'mx-1 far fa-times-circle');
+      tagIcon.setAttribute('class', 'mx-1 far fa-times-circle fa-2x');
       tags.appendChild(tagSelectA);
       tagSelectA.appendChild(tagText);
       tagSelectA.appendChild(tagIcon);
@@ -50,7 +50,7 @@ function addTag() {
       tagText.innerHTML = `${selectUstensil.innerHTML}`;
 
       const tagIcon = document.createElement('i');
-      tagIcon.setAttribute('class', 'mx-1 far fa-times-circle');
+      tagIcon.setAttribute('class', 'mx-1 far fa-times-circle fa-2x');
 
       tags.appendChild(tagSelectU);
       tagSelectU.appendChild(tagText);
