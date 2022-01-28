@@ -21,6 +21,7 @@ export function listTag(e) {
     listIngredient.setAttribute('style', 'width: 190px');
     listIngredient.innerHTML = `${e}`;
     list1.appendChild(listIngredient);
+    console.log(arrayIngredients);
   });
 
   ////Appliance Tag////

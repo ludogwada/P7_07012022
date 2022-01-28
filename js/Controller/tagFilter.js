@@ -59,6 +59,3 @@ function addTag() {
   }
 }
 addTag();
-
-const tagFilter = document.querySelectorAll('.tag');
-console.log(tagArray);

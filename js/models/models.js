@@ -36,4 +36,17 @@ export class DataRecipe {
 
     return this.datas;
   }
+
+  search(motRecherche) {
+    let motTrouve = [];
+    motTrouve = this.datas.filter(
+      (el) =>
+        el.name.toLowerCase().includes(motRecherche) ||
+        el.description.toLowerCase().includes(motRecherche) ||
+        el.ingredients.find((unIngredient) =>
+          unIngredient.ingredient.toLowerCase().includes(motRecherche)
+        )
+    );
+    return motTrouve;
+  }
 }
