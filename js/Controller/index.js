@@ -1,4 +1,4 @@
-import { listTag } from '../Vue/listTags.js';
+// import { listTag } from '../Vue/listTags.js';
 import { recipes } from '../../data/recipes.js';
 import { recipeDisplay } from '../Vue/Card.js';
 import { DataRecipe } from '../models/models.js';
@@ -17,13 +17,13 @@ function filterData(e) {
   if (searchedString.length >= 3) {
     filteredArray = datarecipe.search(searchedString);
     recipeDisplay(filteredArray);
-    listTag(filteredArray);
+    datarecipe.listTagIngredients(filteredArray);
+    datarecipe.listTagAppliance(filteredArray);
+    datarecipe.listTagUstensils(filteredArray);
   } else if (searchedString.length === 0) {
     recipeDisplay(recipes);
-    listTag(recipes);
   }
-  // console.log(filteredArray);
+  console.log(filteredArray);
 }
-//
-listTag(recipes);
+// listTag(recipes);
 recipeDisplay(recipes);
