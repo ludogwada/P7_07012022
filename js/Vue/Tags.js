@@ -1,15 +1,17 @@
 const tags = document.getElementById('tags');
 const selectI = document.querySelectorAll('.ingredient-item');
-const selectA = document.querySelectorAll('.appareil-item');
+const selectA = document.querySelectorAll('.appliance-item');
 const selectU = document.querySelectorAll('.ustensil-item');
-const tagArray = [];
-
-function addTag() {
+// const tagArray = [];
+console.log(selectA);
+function addTag(arrayFilter) {
   for (let selectIngredient of selectI) {
     selectIngredient.addEventListener('click', () => {
+      let tagArray = [];
       const tagSelectI = document.createElement('li');
       tagSelectI.setAttribute('class', 'tag bg-blue');
       tagArray.push(selectIngredient.innerHTML);
+      // tagArray.filter(arrayFilter);
 
       const tagText = document.createElement('p');
       tagText.setAttribute('class', 'mb-0 tag__text');
@@ -17,23 +19,32 @@ function addTag() {
 
       const tagIcon = document.createElement('i');
       tagIcon.setAttribute('class', 'mx-1 far fa-times-circle fa-2x');
+      tagIcon.addEventListener('click', () => {
+        tags.removeChild(tagSelectI);
+      });
       tags.appendChild(tagSelectI);
       tagSelectI.appendChild(tagText);
       tagSelectI.appendChild(tagIcon);
     });
   }
-  for (let selectAppareil of selectA) {
-    selectAppareil.addEventListener('click', () => {
+  for (let selectAppliance of selectA) {
+    selectAppliance.addEventListener('click', () => {
+      let tagArray = [];
       const tagSelectA = document.createElement('li');
       tagSelectA.setAttribute('class', 'tag bg-green');
-      tagArray.push(selectAppareil.innerHTML);
+      tagArray.push(selectAppliance.innerHTML);
+      // tagArray.filter(arrayFilter);
 
       const tagText = document.createElement('p');
       tagText.setAttribute('class', 'mb-0 tag__text');
-      tagText.innerHTML = `${selectAppareil.innerHTML}`;
+      tagText.innerHTML = `${selectAppliance.innerHTML}`;
 
       const tagIcon = document.createElement('i');
       tagIcon.setAttribute('class', 'mx-1 far fa-times-circle fa-2x');
+      tagIcon.addEventListener('click', () => {
+        tags.removeChild(tagSelectA);
+        tagArray.splice(0, tagArray);
+      });
       tags.appendChild(tagSelectA);
       tagSelectA.appendChild(tagText);
       tagSelectA.appendChild(tagIcon);
@@ -41,9 +52,11 @@ function addTag() {
   }
   for (let selectUstensil of selectU) {
     selectUstensil.addEventListener('click', () => {
+      let tagArray = [];
       const tagSelectU = document.createElement('li');
       tagSelectU.setAttribute('class', 'tag bg-red');
       tagArray.push(selectUstensil.innerHTML);
+      // tagArray.filter(arrayFilter);
 
       const tagText = document.createElement('p');
       tagText.setAttribute('class', 'mb-0 tag__text');
@@ -51,6 +64,9 @@ function addTag() {
 
       const tagIcon = document.createElement('i');
       tagIcon.setAttribute('class', 'mx-1 far fa-times-circle fa-2x');
+      tagIcon.addEventListener('click', () => {
+        tags.removeChild(tagSelectU);
+      });
 
       tags.appendChild(tagSelectU);
       tagSelectU.appendChild(tagText);
@@ -58,4 +74,5 @@ function addTag() {
     });
   }
 }
+
 addTag();
