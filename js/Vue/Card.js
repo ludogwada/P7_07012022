@@ -38,3 +38,12 @@ function recipeDisplay(recipeList) {
   });
 }
 export { recipeDisplay };
+
+function NoCard(location) {
+  const searchError = document.createElement('p');
+  searchError.textContent =
+    ' Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc...';
+  searchError.setAttribute('class', 'text-center, fs-4');
+  location.appendChild(searchError);
+}
+export { NoCard };

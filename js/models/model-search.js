@@ -49,4 +49,17 @@ export class DataRecipe {
     );
     return motTrouve;
   }
+
+  searchByTag(tag) {
+    let recette = [];
+    recette = this.datas.filter(
+      (el) =>
+        el.ingredients.find((unIngredient) =>
+          unIngredient.ingredient.includes(tag)
+        ) ||
+        el.appliance.includes(tag) ||
+        el.ustensils.includes(tag)
+    );
+    return recette;
+  }
 }

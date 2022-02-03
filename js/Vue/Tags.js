@@ -3,15 +3,14 @@ const selectI = document.querySelectorAll('.ingredient-item');
 const selectA = document.querySelectorAll('.appliance-item');
 const selectU = document.querySelectorAll('.ustensil-item');
 // const tagArray = [];
-console.log(selectA);
-function addTag(arrayFilter) {
+
+function addTag() {
   for (let selectIngredient of selectI) {
     selectIngredient.addEventListener('click', () => {
       let tagArray = [];
       const tagSelectI = document.createElement('li');
       tagSelectI.setAttribute('class', 'tag bg-blue');
       tagArray.push(selectIngredient.innerHTML);
-      // tagArray.filter(arrayFilter);
 
       const tagText = document.createElement('p');
       tagText.setAttribute('class', 'mb-0 tag__text');
@@ -33,7 +32,6 @@ function addTag(arrayFilter) {
       const tagSelectA = document.createElement('li');
       tagSelectA.setAttribute('class', 'tag bg-green');
       tagArray.push(selectAppliance.innerHTML);
-      // tagArray.filter(arrayFilter);
 
       const tagText = document.createElement('p');
       tagText.setAttribute('class', 'mb-0 tag__text');
@@ -56,7 +54,6 @@ function addTag(arrayFilter) {
       const tagSelectU = document.createElement('li');
       tagSelectU.setAttribute('class', 'tag bg-red');
       tagArray.push(selectUstensil.innerHTML);
-      // tagArray.filter(arrayFilter);
 
       const tagText = document.createElement('p');
       tagText.setAttribute('class', 'mb-0 tag__text');

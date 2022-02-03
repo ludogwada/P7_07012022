@@ -1,5 +1,6 @@
 import { recipes } from '../../data/recipes.js';
 import { recipeDisplay } from '../Vue/Card.js';
+import { NoCard } from '../Vue/Card.js';
 import { DataRecipe } from '../models/model-search.js';
 import { DataDropdown } from '../models/model-dropdown.js';
 
@@ -32,8 +33,7 @@ function filterData(e) {
     filteredArray = [];
     filteredArray = datarecipe.search(searchedString);
     if (filteredArray.length === 0) {
-      searchResult.textContent =
-        '« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.';
+      NoCard(searchResult);
     }
     recipeDisplay(filteredArray);
     const resultatIngredient = datadropdown.listTagIngredients(filteredArray);
