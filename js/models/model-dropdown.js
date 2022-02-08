@@ -38,6 +38,8 @@ export class DataDropdown {
         this.arrayIngredients.push(el.ingredient.toLowerCase())
       )
     );
+    this.arrayIngredients = [...new Set(this.arrayIngredients)];
+    this.arrayIngredients.sort((a, b) => a.localeCompare(b));
     return this.arrayIngredients;
   }
   listTagAppliance(listeRecette) {
@@ -45,6 +47,8 @@ export class DataDropdown {
     listeRecette.forEach((recipes) => {
       this.arrayAppliance.push(recipes.appliance.toLowerCase());
     });
+    this.arrayAppliance = [...new Set(this.arrayAppliance)];
+    this.arrayAppliance.sort((a, b) => a.localeCompare(b));
     return this.arrayAppliance;
   }
 
@@ -55,53 +59,55 @@ export class DataDropdown {
         this.arrayUstensils.push(ustensil.toLowerCase())
       )
     );
+    this.arrayUstensils = [...new Set(this.arrayUstensils)];
+    this.arrayUstensils.sort((a, b) => a.localeCompare(b));
     return this.arrayUstensils;
   }
 
-  createListIngredient(array) {
-    list1.innerHTML = '';
-    const uniqueIngredient = [...new Set(array)];
-    uniqueIngredient.sort((a, b) => a.localeCompare(b));
-    uniqueIngredient.forEach((e) => {
-      const listIngredient = document.createElement('li');
-      listIngredient.setAttribute(
-        'class',
-        'dropdown-item ingredient-item text-white overflow-hidden'
-      );
-      listIngredient.setAttribute('style', 'width: 190px');
-      listIngredient.innerHTML = `${e}`;
-      list1.appendChild(listIngredient);
-    });
-  }
+  // createListIngredient(array) {
+  //   list1.innerHTML = '';
+  //   const uniqueIngredient = [...new Set(array)];
+  //   uniqueIngredient.sort((a, b) => a.localeCompare(b));
+  //   uniqueIngredient.forEach((e) => {
+  //     const listIngredient = document.createElement('li');
+  //     listIngredient.setAttribute(
+  //       'class',
+  //       'dropdown-item ingredient-item text-white overflow-hidden'
+  //     );
+  //     listIngredient.setAttribute('style', 'width: 190px');
+  //     listIngredient.innerHTML = `${e}`;
+  //     list1.appendChild(listIngredient);
+  //   });
+  // }
 
-  createListAppliance(array) {
-    list2.innerHTML = '';
-    const uniqueAppliance = [...new Set(array)];
-    uniqueAppliance.sort((a, b) => a.localeCompare(b));
-    uniqueAppliance.forEach((el) => {
-      const listAplliance = document.createElement('li');
-      listAplliance.setAttribute(
-        'class',
-        'dropdown-item appliance-item text-white overflow-hidden'
-      );
-      listAplliance.setAttribute('style', 'width: 190px');
-      listAplliance.innerHTML = `${el}`;
-      list2.appendChild(listAplliance);
-    });
-  }
-  createListUstensil(array) {
-    list3.innerHTML = '';
-    const uniqueUstensil = [...new Set(array)];
-    uniqueUstensil.sort((a, b) => a.localeCompare(b));
-    uniqueUstensil.forEach((el) => {
-      const listUstensils = document.createElement('li');
-      listUstensils.setAttribute(
-        'class',
-        'dropdown-item ustensil-item text-white overflow-hidden'
-      );
-      listUstensils.setAttribute('style', 'width: 190px');
-      listUstensils.innerHTML = ` ${el}`;
-      list3.appendChild(listUstensils);
-    });
-  }
+  // createListAppliance(array) {
+  //   list2.innerHTML = '';
+  //   const uniqueAppliance = [...new Set(array)];
+  //   uniqueAppliance.sort((a, b) => a.localeCompare(b));
+  //   uniqueAppliance.forEach((el) => {
+  //     const listAplliance = document.createElement('li');
+  //     listAplliance.setAttribute(
+  //       'class',
+  //       'dropdown-item appliance-item text-white overflow-hidden'
+  //     );
+  //     listAplliance.setAttribute('style', 'width: 190px');
+  //     listAplliance.innerHTML = `${el}`;
+  //     list2.appendChild(listAplliance);
+  //   });
+  // }
+  // createListUstensil(array) {
+  //   list3.innerHTML = '';
+  //   const uniqueUstensil = [...new Set(array)];
+  //   uniqueUstensil.sort((a, b) => a.localeCompare(b));
+  //   uniqueUstensil.forEach((el) => {
+  //     const listUstensils = document.createElement('li');
+  //     listUstensils.setAttribute(
+  //       'class',
+  //       'dropdown-item ustensil-item text-white overflow-hidden'
+  //     );
+  //     listUstensils.setAttribute('style', 'width: 190px');
+  //     listUstensils.innerHTML = ` ${el}`;
+  //     list3.appendChild(listUstensils);
+  //   });
+  // }
 }

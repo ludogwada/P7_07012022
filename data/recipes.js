@@ -518,7 +518,7 @@ export const recipes = [
     description:
       "Mélanger la farine et les oeufs, faire fondre 25 grammes de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidire. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les crêpes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
     appliance: 'Four',
-    ustensils: ['poelle à frire', 'couteau'],
+    ustensils: ['poêle à frire', 'couteau'],
   },
   {
     id: 15,
@@ -557,7 +557,7 @@ export const recipes = [
     time: 60,
     description:
       "Mélangez dans un saladier, la farine, les oeufs, et le lait. Battez jusqu'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands",
-    appliance: 'Poële à crêpe',
+    appliance: 'Poêle à crêpe',
     ustensils: ['saladier', 'louche', 'cuillère en bois'],
   },
   {
@@ -626,7 +626,7 @@ export const recipes = [
     ],
     time: 15,
     description:
-      'Coupez les fraises en morceaux, découpez la chaire de la pastèque en retirant les pépins. Mettre le tout dans le blender. Ajouter un cuillière à soupe de juste de citron ainsi que les glaçons. Ajoutez quelques fueilles de menthe pour plus de fraîcheur. Mixez le tout. Servir et déguster.',
+      'Coupez les fraises en morceaux, découpez la chaire de la pastèque en retirant les pépins. Mettre le tout dans le blender. Ajouter un cuillière à soupe de juste de citron ainsi que les glaçons. Ajoutez quelques feuilles de menthe pour plus de fraîcheur. Mixez le tout. Servir et déguster.',
     appliance: 'Blender',
     ustensils: ['verres', 'couteau', 'presse citron'],
   },
@@ -764,7 +764,7 @@ export const recipes = [
     ],
     time: 30,
     description:
-      'Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Serivir.',
+      'Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Serivir.',
     appliance: 'Casserole',
     ustensils: ['Cuillère en bois', 'louche', 'couteau'],
   },
@@ -949,8 +949,8 @@ export const recipes = [
     ],
     time: 25,
     description:
-      "Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
-    appliance: 'Mixer',
+      "Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer au mixeur. Servir.",
+    appliance: 'Mixeur',
     ustensils: ['cocotte minute', 'couteau'],
   },
   {
@@ -1021,7 +1021,7 @@ export const recipes = [
     time: 80,
     description:
       "Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
-    appliance: 'Mixer',
+    appliance: 'Mixeur',
     ustensils: ['casserole', 'couteau'],
   },
   {
@@ -1052,8 +1052,8 @@ export const recipes = [
     ],
     time: 30,
     description:
-      "Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
-    appliance: 'Mixer',
+      "Prendre les pois chiches, les mettre dans le mixeur avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
+    appliance: 'Mixeur',
     ustensils: ['cuillère en bois', 'presse citron'],
   },
   {
@@ -1078,8 +1078,8 @@ export const recipes = [
     ],
     time: 60,
     description:
-      "Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
-    appliance: 'Mixer',
+      "Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixeur. Salez, poivrez. C'est prêt",
+    appliance: 'Mixeur',
     ustensils: ['casserole', 'cuillère en bois'],
   },
   {
@@ -1114,7 +1114,7 @@ export const recipes = [
     time: 60,
     description:
       "Découper en cubes les carottes et pommes de terre. Faire revenir dans du beurre. Ajouter les lardons, une fois les lardons dorés, ajouter un grand verre d'eau. Ajouter les petit poids et les haricots verts ( tous deux pré cuits ). Ajouter Sel, poivre, thyms et laurier",
-    appliance: 'Poële',
+    appliance: 'Poêle',
     ustensils: ['Couteau', 'économe'],
   },
   {
@@ -1220,8 +1220,8 @@ export const recipes = [
     ],
     time: 25,
     description:
-      "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserole d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
-    appliance: 'Mixer',
+      "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserole d'eau bouillante. Passer au mixeur en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
+    appliance: 'Mixeur',
     ustensils: ['couteau', 'économe', 'cuillère en bois'],
   },
   {
@@ -1261,7 +1261,7 @@ export const recipes = [
     time: 25,
     description:
       'Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.',
-    appliance: 'Mixer',
+    appliance: 'Mixeur',
     ustensils: ['cocotte minute', 'couteau', 'cuillère en bois'],
   },
   {
@@ -1342,7 +1342,7 @@ export const recipes = [
     description:
       "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
     appliance: 'Four',
-    ustensils: ['couteau', 'cuillère en bois', 'Poelle à frire'],
+    ustensils: ['couteau', 'cuillère en bois', 'Poêle à frire'],
   },
   {
     id: 38,
@@ -1753,7 +1753,7 @@ export const recipes = [
         quantity: 6,
       },
       {
-        ingredient: "Poudre d'amendes",
+        ingredient: "Poudre d'amandes",
         quantity: 500,
         unit: 'grammes',
       },

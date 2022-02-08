@@ -1,12 +1,14 @@
-const searchResult = document.querySelector('.js-card');
-
-function recipeDisplay(recipeList) {
-  recipeList.forEach((recipes) => {
-    const listItem = document.createElement('li');
-    listItem.setAttribute('class', 'd-flex m-4 p-0 w-auto');
-    listItem.innerHTML = `<div id="card${
-      recipes.id
-    }" class="d-flex col-3  card-recipe">
+export class Card {
+  constructor() {
+    this.searchResult = document.querySelector('.js-card');
+  }
+  recipeDisplay(recipeList) {
+    recipeList.forEach((recipes) => {
+      const listItem = document.createElement('li');
+      listItem.setAttribute('class', 'd-flex m-4 p-0 w-auto');
+      listItem.innerHTML = `<div id="card${
+        recipes.id
+      }" class="d-flex col-3  card-recipe">
     <article class="card col">
     <img src="#" class="card-img-top recipe-img" alt="${recipes.name}">
     <div class="card-body bg-light">
@@ -34,16 +36,15 @@ function recipeDisplay(recipeList) {
     </div>
     </article>
     </div>`;
-    searchResult.appendChild(listItem);
-  });
-}
-export { recipeDisplay };
+      this.searchResult.appendChild(listItem);
+    });
+  }
 
-function NoCard(location) {
-  const searchError = document.createElement('p');
-  searchError.textContent =
-    ' Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc...';
-  searchError.setAttribute('class', 'text-center, fs-4');
-  location.appendChild(searchError);
+  NoCard(location) {
+    const searchError = document.createElement('p');
+    searchError.textContent =
+      ' Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc...';
+    searchError.setAttribute('class', 'text-center, fs-4');
+    location.appendChild(searchError);
+  }
 }
-export { NoCard };

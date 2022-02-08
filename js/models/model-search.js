@@ -37,9 +37,9 @@ export class DataRecipe {
     return this.datas;
   }
 
-  search(motRecherche) {
+  search(motRecherche, array) {
     let motTrouve = [];
-    motTrouve = this.datas.filter(
+    motTrouve = array.filter(
       (el) =>
         el.name.toLowerCase().includes(motRecherche) ||
         el.description.toLowerCase().includes(motRecherche) ||
@@ -55,7 +55,7 @@ export class DataRecipe {
     recette = this.datas.filter(
       (el) =>
         el.ingredients.find((unIngredient) =>
-          unIngredient.ingredient.includes(tag)
+          unIngredient.ingredient.toLowerCase().includes(tag)
         ) ||
         el.appliance.includes(tag) ||
         el.ustensils.includes(tag)
