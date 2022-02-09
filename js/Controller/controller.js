@@ -88,26 +88,30 @@ class Control {
       this.allDisplay.displayUstensil(listU);
     });
   }
-  eventAddTag() {
+
+  AddTag() {
     this.filterTag = [];
     let blueColor = 'blue';
-    let selectI = document.querySelectorAll('.ingredient-item');
-    for (let ingredient of selectI) {
-      ingredient.addEventListener('click', () => {
+    let greenColor = 'green';
+    let redColor = 'red';
+    let dropdownEl = document.querySelectorAll('.dropdown-item');
+    for (let element of dropdownEl) {
+      element.addEventListener('click', (e) => {
+        if (element.classList[3] == 'ingredient-item') {
+          this.tags.createTag(blueColor, element.innerHTML);
+        } else if (element.classList[3] == 'appliance-item') {
+          this.tags.createTag(greenColor, element.innerHTML);
+        } else if (element.classList[3] == 'ustensil-item') {
+          this.tags.createTag(redColor, element.innerHTML);
+        }
         this.searchResult.innerHTML = '';
-        this.tagList.add(ingredient);
-        this.tags.createTag(blueColor, ingredient.innerHTML);
-        this.filterTag = this.datarecipe.searchByTag(ingredient.innerHTML);
+        this.tagList.add(element);
+        this.filterTag = this.datarecipe.searchByTag(element.innerHTML);
         this.recipe(this.filterTag);
       });
     }
   }
-  deleteTag() {
-    let cross = document.querySelectorAll('.js-cross');
-    for (let close of cross) {
-      close.addEventListener('click', () => {});
-    }
-  }
+  DeleteTag() {}
 }
 const control = new Control();
 control.recipe(recipes);
@@ -115,6 +119,5 @@ control.eventSearchBar();
 control.eventIngredient();
 control.eventAppliance();
 control.eventUstensil();
-control.eventAddTag();
-control.deleteTag();
-// console.log(listI);
+control.AddTag();
+control.DeleteTag();
