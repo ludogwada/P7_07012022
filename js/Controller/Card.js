@@ -1,9 +1,13 @@
+import { recipes } from "../../data/recipes.js";
+
 export class Card {
   constructor() {
     this.searchResult = document.querySelector(".js-card");
+
+    this.datas = recipes;
   }
-  recipeDisplay(recipeList) {
-    recipeList.forEach((recipes) => {
+  recipeDisplay() {
+    this.datas.forEach((recipes) => {
       const listItem = document.createElement("li");
       listItem.setAttribute("class", "d-flex m-4 p-0 w-auto");
       listItem.innerHTML = `<div id="card${
