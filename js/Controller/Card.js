@@ -1,11 +1,11 @@
 export class Card {
   constructor() {
-    this.searchResult = document.querySelector('.js-card');
+    this.searchResult = document.querySelector(".js-card");
   }
   recipeDisplay(recipeList) {
     recipeList.forEach((recipes) => {
-      const listItem = document.createElement('li');
-      listItem.setAttribute('class', 'd-flex m-4 p-0 w-auto');
+      const listItem = document.createElement("li");
+      listItem.setAttribute("class", "d-flex m-4 p-0 w-auto");
       listItem.innerHTML = `<div id="card${
         recipes.id
       }" class="d-flex col-3  card-recipe">
@@ -21,16 +21,16 @@ export class Card {
     <div class= "d-flex mt-3 overflow-hidden">
     <ul class="col card-text list-unstyled text-nowrap">${recipes.ingredients
       .map((e) => {
-        if (e.unit === 'grammes') e.unit = 'g';
-        else if (e.unit === 'cuillères à soupe') e.unit = 'cuillères';
-        else if (e.unit === 'cuillère à soupe') e.unit = 'cuillère';
+        if (e.unit === "grammes") e.unit = "g";
+        else if (e.unit === "cuillères à soupe") e.unit = "cuillères";
+        else if (e.unit === "cuillère à soupe") e.unit = "cuillère";
         let quantite =
-          (e.quantity ? ' :' : '') + (e.quantity ? e.quantity : ' ');
-        let unite = e.unit ? e.unit : ' ';
+          (e.quantity ? " :" : "") + (e.quantity ? e.quantity : " ");
+        let unite = e.unit ? e.unit : " ";
 
         return `<li><strong>${e.ingredient}</strong><span>${quantite} ${unite}</span> </li>`;
       })
-      .join('')}
+      .join("")}
   </ul>
     <p class="col recipe-text overflow-hidden">${recipes.description}</p>
     </div>
@@ -40,11 +40,11 @@ export class Card {
     });
   }
 
-  NoCard(location) {
-    const searchError = document.createElement('p');
+  noCard(location) {
+    const searchError = document.createElement("p");
     searchError.textContent =
-      ' Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc...';
-    searchError.setAttribute('class', 'text-center, fs-4');
+      " Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc...";
+    searchError.setAttribute("class", "text-center, fs-4");
     location.appendChild(searchError);
   }
 }
