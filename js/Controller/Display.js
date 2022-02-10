@@ -1,5 +1,3 @@
-import { Card } from "./Card.js";
-import { Tags } from "./Tags.js";
 import { SearchModel } from "../models/searchModel.js";
 
 export class AllDisplay {
@@ -17,20 +15,20 @@ export class AllDisplay {
   }
 
   displayIngredient() {
-    this.searchModel.getIngredients.forEach((e) => {
-      this.listElement = document.createElement("li");
-      this.listElement.setAttribute(
+    this.searchModel.getIngredients().forEach((e) => {
+      const listElement = document.createElement("li");
+      listElement.setAttribute(
         "class",
         "dropdown-item text-white overflow-hidden ingredient-item"
       );
-      this.listElement.setAttribute("style", "width: 190px");
-      this.listElement.innerHTML = `${e}`;
-      this.listIngredient.appendChild(this.listElement);
+      listElement.setAttribute("style", "width: 190px");
+      listElement.innerHTML = `${e}`;
+      this.listIngredient.appendChild(listElement);
     });
   }
 
   displayAplliance() {
-    this.searchModel.getIngredients.forEach((e) => {
+    this.searchModel.getAppliance().forEach((e) => {
       this.listElement = document.createElement("li");
       this.listElement.setAttribute(
         "class",
@@ -42,8 +40,8 @@ export class AllDisplay {
     });
   }
 
-  displayUstensil() {
-    this.searchModel.getIngredients.forEach((e) => {
+  displayUstensils() {
+    this.searchModel.getUstensils().forEach((e) => {
       this.listElement = document.createElement("li");
       this.listElement.setAttribute(
         "class",

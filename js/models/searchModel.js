@@ -5,9 +5,9 @@ export class SearchModel {
     this.datas = recipes;
   }
 
-  getUstensiles() {
+  getUstensils() {
     this.arrayUstensils = [];
-    listeRecette.forEach((recipe) =>
+    this.datas.forEach((recipe) =>
       recipe.ustensils.forEach((ustensil) =>
         this.arrayUstensils.push(ustensil.toLowerCase())
       )
@@ -19,7 +19,7 @@ export class SearchModel {
 
   getIngredients() {
     this.arrayIngredients = [];
-    listeRecette.forEach((recipe) =>
+    this.datas.forEach((recipe) =>
       recipe.ingredients.forEach((el) =>
         this.arrayIngredients.push(el.ingredient.toLowerCase())
       )
@@ -29,9 +29,9 @@ export class SearchModel {
     return this.arrayIngredients;
   }
 
-  getAppareils() {
+  getAppliance() {
     this.arrayAppliance = [];
-    listeRecette.forEach((recipes) => {
+    this.datas.forEach((recipes) => {
       this.arrayAppliance.push(recipes.appliance.toLowerCase());
     });
     this.arrayAppliance = [...new Set(this.arrayAppliance)];

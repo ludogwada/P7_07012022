@@ -1,4 +1,6 @@
-import { Control } from './Controller/controller.js';
+import { AllDisplay } from "./Controller/Display.js";
 
-const app = new Control();
-app();
+const app = new AllDisplay();
+app.displayIngredient();
+app.displayAplliance();
+app.displayUstensils();
