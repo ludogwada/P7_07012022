@@ -39,8 +39,15 @@ export class SearchModel {
     return this.arrayAppliance;
   }
 
-  getListeRecette() {
+  getListeRecette(motRecherche) {
     //TODO
+    this.arrayRecipe = [];
+    this.search(motRecherche).forEach((recipes) => {
+      // this.arrayRecipe.splice(0, this.arrayRecipe.length);
+      this.arrayRecipe.push(recipes);
+    });
+
+    return this.arrayRecipe;
   }
 
   search(motRecherche) {

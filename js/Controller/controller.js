@@ -1,11 +1,12 @@
-// import { recipes } from '../../data/recipes.js';
+import { recipes } from "../../data/recipes.js";
 // import { DataRecipe } from '../models/model-search.js';
 // import { DataDropdown } from '../models/model-dropdown.js';
 // import { AllDisplay } from '../Vue/Display.js';
 // import { TagList } from '../models/tagList.js';
-// import { Card } from '../Vue/Card.js';
+import { Card } from "./Card.js";
 // import { Tags } from '../Vue/Tags.js';
-import { SearchModel } from "../models/searchModel.js";
+// import { SearchModel } from "../models/searchModel.js";
+import { AllDisplay } from "./Display.js";
 
 // let listI = [];
 // let listA = [];
@@ -13,15 +14,16 @@ import { SearchModel } from "../models/searchModel.js";
 
 export class Control {
   constructor() {
-    this.searchModel = new SearchModel();
+    // this.searchModel = new SearchModel();
+    this.allDisplay = new AllDisplay();
     // this.tagList = new TagList();
-    // this.card = new Card();
+    this.card = new Card();
     // this.tags = new Tags();
     // this.allDisplay = new AllDisplay();
     // this.datarecipe = new DataRecipe();
     // this.dataDropdown = new DataDropdown();
     // this.searchInput = document.querySelector('#search');
-    // this.searchResult = document.querySelector('.js-card');
+    this.searchResult = document.querySelector(".js-card");
     // this.ingredientInput = document.getElementById('inputIngredient');
     // this.applianceInput = document.getElementById('inputAppliance');
     // this.ustensilInput = document.getElementById('inputUstensil');
@@ -64,11 +66,14 @@ export class Control {
 
   /*EVENT LISTENER*/
   eventSearchBar() {
-    let resultat = document.querySelector(".js-card");
     let searchInput = document.querySelector("#search");
     searchInput.addEventListener("input", () => {
-      resultat = "";
-      this.searchModel.search(searchInput.value);
+      if (searchInput.value.length >= 3) {
+        this.allDisplay.search(searchInput.value);
+      } else {
+        this.searchResult.innerHTML = "";
+        this.card.recipeDisplay(recipes);
+      }
     });
   }
   // eventIngredient() {

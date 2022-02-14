@@ -1,17 +1,29 @@
+// import { recipes } from "../../data/recipes.js";
 import { SearchModel } from "../models/searchModel.js";
+import { Card } from "./Card.js";
 
 export class AllDisplay {
   constructor() {
     this.listIngredient = document.querySelector(".menu1");
     this.listAppareils = document.querySelector(".menu2");
     this.listUstensils = document.querySelector(".menu3");
+    this.searchResult = document.querySelector(".js-card");
 
     this.searchModel = new SearchModel();
+    this.card = new Card();
   }
 
   search(motRechercher) {
     // faire l'affichage
-    let motTrouve = this.searchModel.search(motRechercher);
+    let locationRecipe = document.querySelector(".js-card");
+    let recetteTrouvee = this.searchModel.getListeRecette(motRechercher);
+    if (recetteTrouvee.length === 0) {
+      locationRecipe.innerHTML = "";
+      this.card.noCard(locationRecipe);
+    } else {
+      locationRecipe.innerHTML = "";
+      this.card.recipeDisplay(recetteTrouvee);
+    }
   }
 
   displayIngredient() {
