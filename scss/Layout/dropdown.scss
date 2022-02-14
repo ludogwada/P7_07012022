@@ -60,14 +60,14 @@ input:focus-visible {
   flex-wrap: wrap;
 }
 
-.menu1 {
+.menuIngredients {
   @include menuDropdown;
 }
 
-.menu2 {
+.menuAppliances {
   @include menuDropdown;
 }
 
-.menu3 {
+.menuUstensils {
   @include menuDropdown;
 }

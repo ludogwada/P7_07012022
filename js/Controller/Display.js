@@ -1,12 +1,12 @@
-// import { recipes } from "../../data/recipes.js";
+import { recipes } from "../../data/recipes.js";
 import { SearchModel } from "../models/searchModel.js";
 import { Card } from "./Card.js";
 
 export class AllDisplay {
   constructor() {
-    this.listIngredient = document.querySelector(".menu1");
-    this.listAppareils = document.querySelector(".menu2");
-    this.listUstensils = document.querySelector(".menu3");
+    this.listIngredient = document.querySelector(".menuIngredients");
+    this.listAppareils = document.querySelector(".menuAppliances");
+    this.listUstensils = document.querySelector(".menuUstensils");
     this.searchResult = document.querySelector(".js-card");
 
     this.searchModel = new SearchModel();
@@ -14,7 +14,6 @@ export class AllDisplay {
   }
 
   search(motRechercher) {
-    // faire l'affichage
     let locationRecipe = document.querySelector(".js-card");
     let recetteTrouvee = this.searchModel.getListeRecette(motRechercher);
     if (recetteTrouvee.length === 0) {
@@ -26,8 +25,8 @@ export class AllDisplay {
     }
   }
 
-  displayIngredient() {
-    this.searchModel.getIngredients().forEach((e) => {
+  displayIngredient(search) {
+    search.forEach((e) => {
       const listElement = document.createElement("li");
       listElement.setAttribute(
         "class",
@@ -39,29 +38,29 @@ export class AllDisplay {
     });
   }
 
-  displayAplliance() {
-    this.searchModel.getAppliance().forEach((e) => {
-      this.listElement = document.createElement("li");
-      this.listElement.setAttribute(
+  displayAppliance(search) {
+    search.forEach((e) => {
+      const listElement = document.createElement("li");
+      listElement.setAttribute(
         "class",
         "dropdown-item text-white overflow-hidden appliance-item"
       );
-      this.listElement.setAttribute("style", "width: 190px");
-      this.listElement.innerHTML = `${e}`;
-      this.listAppareils.appendChild(this.listElement);
+      listElement.setAttribute("style", "width: 190px");
+      listElement.innerHTML = `${e}`;
+      this.listAppareils.appendChild(listElement);
     });
   }
 
-  displayUstensils() {
-    this.searchModel.getUstensils().forEach((e) => {
-      this.listElement = document.createElement("li");
-      this.listElement.setAttribute(
+  displayUstensil(search) {
+    search.forEach((e) => {
+      const listElement = document.createElement("li");
+      listElement.setAttribute(
         "class",
         "dropdown-item text-white overflow-hidden ustensil-item"
       );
-      this.listElement.setAttribute("style", "width: 190px");
-      this.listElement.innerHTML = `${e}`;
-      this.listUstensils.appendChild(this.listElement);
+      listElement.setAttribute("style", "width: 190px");
+      listElement.innerHTML = `${e}`;
+      this.listUstensils.appendChild(listElement);
     });
   }
 }

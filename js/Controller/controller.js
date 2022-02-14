@@ -5,7 +5,7 @@ import { recipes } from "../../data/recipes.js";
 // import { TagList } from '../models/tagList.js';
 import { Card } from "./Card.js";
 // import { Tags } from '../Vue/Tags.js';
-// import { SearchModel } from "../models/searchModel.js";
+import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
 
 // let listI = [];
@@ -14,7 +14,7 @@ import { AllDisplay } from "./Display.js";
 
 export class Control {
   constructor() {
-    // this.searchModel = new SearchModel();
+    this.searchModel = new SearchModel();
     this.allDisplay = new AllDisplay();
     // this.tagList = new TagList();
     this.card = new Card();
@@ -24,9 +24,7 @@ export class Control {
     // this.dataDropdown = new DataDropdown();
     // this.searchInput = document.querySelector('#search');
     this.searchResult = document.querySelector(".js-card");
-    // this.ingredientInput = document.getElementById('inputIngredient');
-    // this.applianceInput = document.getElementById('inputAppliance');
-    // this.ustensilInput = document.getElementById('inputUstensil');
+
     // this.filteredArray = [];
     // this.filterTag = [];
   }
@@ -76,14 +74,51 @@ export class Control {
       }
     });
   }
-  // eventIngredient() {
-  //   this.ingredientInput.addEventListener("input",  {
-  //     listI = this.dataDropdown.searchListIngredient(
-  //       this.ingredientInput.value
-  //     );
-  //     this.allDisplay.displayIngredient(listI);
-  //   });
-  // }
+  eventIngredient() {
+    let ingredientInput = document.getElementById("inputIngredient");
+    let menuIngredients = document.querySelector(".menuIngredients");
+    ingredientInput.addEventListener("input", () => {
+      if (ingredientInput.value.length >= 1) {
+        menuIngredients.innerHTML = "";
+        this.allDisplay.displayIngredient(
+          this.searchModel.searchIngredientList(ingredientInput.value)
+        );
+      } else {
+        menuIngredients.innerHTML = "";
+        this.allDisplay.displayIngredient(this.searchModel.getIngredients());
+      }
+    });
+  }
+  eventAppliance() {
+    let applianceInput = document.getElementById("inputAppliance");
+    let menuAppliances = document.querySelector(".menuAppliances");
+    applianceInput.addEventListener("input", () => {
+      if (applianceInput.value.length >= 1) {
+        menuAppliances.innerHTML = "";
+        this.allDisplay.displayAppliance(
+          this.searchModel.searchApplianceList(applianceInput.value)
+        );
+      } else {
+        menuAppliances.innerHTML = "";
+        this.allDisplay.displayAppliance(this.searchModel.getAppliances());
+      }
+    });
+  }
+  eventUstensil() {
+    let ustensilInput = document.getElementById("inputUstensil");
+    let menuUstensils = document.querySelector(".menuUstensils");
+    ustensilInput.addEventListener("input", () => {
+      if (ustensilInput.value.length >= 1) {
+        menuUstensils.innerHTML = "";
+        this.allDisplay.displayUstensil(
+          this.searchModel.searchUstensilList(ustensilInput.value)
+        );
+      } else {
+        menuUstensils.innerHTML = "";
+        this.allDisplay.displayUstensil(this.searchModel.getUstensils());
+      }
+    });
+  }
   // eventAppliance() {
   //   this.applianceInput.addEventListener("input", () => {
   //     listA = this.dataDropdown.searchListAppliance(this.applianceInput.value);

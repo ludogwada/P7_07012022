@@ -5,18 +5,6 @@ export class SearchModel {
     this.datas = recipes;
   }
 
-  getUstensils() {
-    this.arrayUstensils = [];
-    this.datas.forEach((recipe) =>
-      recipe.ustensils.forEach((ustensil) =>
-        this.arrayUstensils.push(ustensil.toLowerCase())
-      )
-    );
-    this.arrayUstensils = [...new Set(this.arrayUstensils)];
-    this.arrayUstensils.sort((a, b) => a.localeCompare(b));
-    return this.arrayUstensils;
-  }
-
   getIngredients() {
     this.arrayIngredients = [];
     this.datas.forEach((recipe) =>
@@ -29,21 +17,31 @@ export class SearchModel {
     return this.arrayIngredients;
   }
 
-  getAppliance() {
+  getAppliances() {
     this.arrayAppliance = [];
-    this.datas.forEach((recipes) => {
-      this.arrayAppliance.push(recipes.appliance.toLowerCase());
+    this.datas.forEach((recipe) => {
+      this.arrayAppliance.push(recipe.appliance.toLowerCase());
     });
     this.arrayAppliance = [...new Set(this.arrayAppliance)];
     this.arrayAppliance.sort((a, b) => a.localeCompare(b));
     return this.arrayAppliance;
   }
 
+  getUstensils() {
+    this.arrayUstensils = [];
+    this.datas.forEach((recipe) =>
+      recipe.ustensils.forEach((ustensil) =>
+        this.arrayUstensils.push(ustensil.toLowerCase())
+      )
+    );
+    this.arrayUstensils = [...new Set(this.arrayUstensils)];
+    this.arrayUstensils.sort((a, b) => a.localeCompare(b));
+    return this.arrayUstensils;
+  }
+
   getListeRecette(motRecherche) {
-    //TODO
     this.arrayRecipe = [];
     this.search(motRecherche).forEach((recipes) => {
-      // this.arrayRecipe.splice(0, this.arrayRecipe.length);
       this.arrayRecipe.push(recipes);
     });
 
@@ -61,5 +59,30 @@ export class SearchModel {
         )
     );
     return motTrouve;
+  }
+
+  searchIngredientList(ingredientRecherche) {
+    let ingredientTrouve = [];
+    let ingredientList = this.getIngredients();
+    ingredientTrouve = ingredientList.filter((ingredient) =>
+      ingredient.includes(ingredientRecherche)
+    );
+    return ingredientTrouve;
+  }
+  searchApplianceList(applianceRecherche) {
+    let applianceTrouve = [];
+    let applianceList = this.getAppliances();
+    applianceTrouve = applianceList.filter((appliance) =>
+      appliance.includes(applianceRecherche)
+    );
+    return applianceTrouve;
+  }
+  searchUstensilList(ustensilRecherche) {
+    let ustensilTrouve = [];
+    let ustensilList = this.getUstensils();
+    ustensilTrouve = ustensilList.filter((ustensil) =>
+      ustensil.includes(ustensilRecherche)
+    );
+    return ustensilTrouve;
   }
 }
