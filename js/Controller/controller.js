@@ -1,66 +1,16 @@
 import { recipes } from "../../data/recipes.js";
-// import { DataRecipe } from '../models/model-search.js';
-// import { DataDropdown } from '../models/model-dropdown.js';
-// import { AllDisplay } from '../Vue/Display.js';
-// import { TagList } from '../models/tagList.js';
 import { Card } from "./Card.js";
-// import { Tags } from '../Vue/Tags.js';
 import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
-
-// let listI = [];
-// let listA = [];
-// let listU = [];
 
 export class Control {
   constructor() {
     this.searchModel = new SearchModel();
     this.allDisplay = new AllDisplay();
-    // this.tagList = new TagList();
     this.card = new Card();
-    // this.tags = new Tags();
-    // this.allDisplay = new AllDisplay();
-    // this.datarecipe = new DataRecipe();
-    // this.dataDropdown = new DataDropdown();
-    // this.searchInput = document.querySelector('#search');
-    this.searchResult = document.querySelector(".js-card");
 
-    // this.filteredArray = [];
-    // this.filterTag = [];
+    this.searchResult = document.querySelector(".js-card");
   }
-  // recipe(recipe) {
-  //   this.allDisplay.display(recipe);
-  //   listI = this.dataDropdown.listTagIngredients(recipe);
-  //   listA = this.dataDropdown.listTagAppliance(recipe);
-  //   listU = this.dataDropdown.listTagUstensils(recipe);
-  //   this.allDisplay.displayIngredient(listI);
-  //   this.allDisplay.displayAplliance(listA);
-  //   this.allDisplay.displayUstensil(listU);
-  // }
-  /*FILTER*/
-  // filterData() {
-  //   if (this.searchInput.value.length >= 3) {
-  //     if (this.filterTag.length === 0) {
-  //       this.filteredArray = this.datarecipe.search(
-  //         this.searchInput.value,
-  //         recipes
-  //       );
-  //     } else if (this.filterTag.length) {
-  //       this.filteredArray = this.datarecipe.search(
-  //         this.searchInput.value,
-  //         this.filterTag
-  //       );
-  //     }
-  //     if (this.filteredArray.length === 0) {
-  //       this.card.NoCard(this.searchResult);
-  //     }
-  //     this.recipe(this.filteredArray);
-  //   }
-  //     else {
-  //       this.recipe(this.filterTag);
-  //     }
-  //   }
-  // }
 
   /*EVENT LISTENER*/
   eventSearchBar() {
@@ -119,18 +69,6 @@ export class Control {
       }
     });
   }
-  // eventAppliance() {
-  //   this.applianceInput.addEventListener("input", () => {
-  //     listA = this.dataDropdown.searchListAppliance(this.applianceInput.value);
-  //     this.allDisplay.displayAplliance(listA);
-  //   });
-  // }
-  // eventUstensil() {
-  //   this.ustensilInput.addEventListener("input", () => {
-  //     listU = this.dataDropdown.searchListUstensil(this.ustensilInput.value);
-  //     this.allDisplay.displayUstensil(listU);
-  //   });
-  // }
 
   // AddTag() {
   //   this.filterTag = [];
