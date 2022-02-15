@@ -65,17 +65,17 @@ input:focus-visible {
   flex-wrap: wrap;
 }
 
-.menu1 {
+.menuIngredients {
   width: 600px;
   max-height: 300px;
 }
 
-.menu2 {
+.menuAppliances {
   width: 600px;
   max-height: 300px;
 }
 
-.menu3 {
+.menuUstensils {
   width: 600px;
   max-height: 300px;
 }
