@@ -14,9 +14,9 @@ class App {
 
   main() {
     this.card.recipeDisplay(recipes);
-    this.display.displayIngredient(this.searchModels.getIngredients());
-    this.display.displayAppliance(this.searchModels.getAppliances());
-    this.display.displayUstensil(this.searchModels.getUstensils());
+    this.display.displayIngredient(this.searchModels.getIngredients(recipes));
+    this.display.displayAppliance(this.searchModels.getAppliances(recipes));
+    this.display.displayUstensil(this.searchModels.getUstensils(recipes));
   }
   search() {
     this.control.eventSearchBar();

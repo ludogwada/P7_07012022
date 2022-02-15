@@ -26,6 +26,7 @@ export class AllDisplay {
   }
 
   displayIngredient(search) {
+    this.listIngredient.innerHTML = "";
     search.forEach((e) => {
       const listElement = document.createElement("li");
       listElement.setAttribute(
@@ -39,6 +40,7 @@ export class AllDisplay {
   }
 
   displayAppliance(search) {
+    this.listAppareils.innerHTML = "";
     search.forEach((e) => {
       const listElement = document.createElement("li");
       listElement.setAttribute(
@@ -52,6 +54,7 @@ export class AllDisplay {
   }
 
   displayUstensil(search) {
+    this.listUstensils.innerHTML = "";
     search.forEach((e) => {
       const listElement = document.createElement("li");
       listElement.setAttribute(

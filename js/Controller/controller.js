@@ -18,9 +18,31 @@ export class Control {
     searchInput.addEventListener("input", () => {
       if (searchInput.value.length >= 3) {
         this.allDisplay.search(searchInput.value);
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients(
+            this.searchModel.getListeRecette(searchInput.value)
+          )
+        );
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances(
+            this.searchModel.getListeRecette(searchInput.value)
+          )
+        );
+        this.allDisplay.displayUstensil(
+          this.searchModel.getUstensils(
+            this.searchModel.getListeRecette(searchInput.value)
+          )
+        );
       } else {
         this.searchResult.innerHTML = "";
         this.card.recipeDisplay(recipes);
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients(recipes)
+        );
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances(recipes)
+        );
+        this.allDisplay.displayUstensil(this.searchModel.getUstensils(recipes));
       }
     });
   }
@@ -31,11 +53,13 @@ export class Control {
       if (ingredientInput.value.length >= 1) {
         menuIngredients.innerHTML = "";
         this.allDisplay.displayIngredient(
-          this.searchModel.searchIngredientList(ingredientInput.value)
+          this.searchModel.searchIngredientList(ingredientInput.value, recipes)
         );
       } else {
         menuIngredients.innerHTML = "";
-        this.allDisplay.displayIngredient(this.searchModel.getIngredients());
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients(recipes)
+        );
       }
     });
   }
