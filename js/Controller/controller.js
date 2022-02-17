@@ -10,6 +10,27 @@ export class Control {
     this.card = new Card();
 
     this.searchResult = document.querySelector(".js-card");
+    this.tags = [];
+  }
+
+  addTag() {
+    let dropdownElement = document.querySelectorAll(".dropdown-item");
+    for (let element of dropdownElement) {
+      element.addEventListener("click", (e) => {
+        if (element.classList[3] == "ingredient-item") {
+          this.allDisplay.createTag("blue", element.innerHTML);
+        } else if (element.classList[3] == "appliance-item") {
+          this.allDisplay.createTag("green", element.innerHTML);
+        } else if (element.classList[3] == "ustensil-item") {
+          this.allDisplay.createTag("red", element.innerHTML);
+        }
+        this.tags.push(element);
+      });
+    }
+  }
+
+  removeTag() {
+    //TODO
   }
 
   /*EVENT LISTENER*/
@@ -17,24 +38,22 @@ export class Control {
     let searchInput = document.querySelector("#search");
     searchInput.addEventListener("input", () => {
       if (searchInput.value.length >= 3) {
-        this.allDisplay.search(searchInput.value);
+        this.allDisplay.search(searchInput.value, this.tags);
         this.allDisplay.displayIngredient(
-          this.searchModel.getIngredients(
-            this.searchModel.getListeRecette(searchInput.value)
-          )
+          this.searchModel.getIngredients(searchInput.value)
         );
         this.allDisplay.displayAppliance(
-          this.searchModel.getAppliances(
-            this.searchModel.getListeRecette(searchInput.value)
-          )
+          this.searchModel.getAppliances(searchInput.value)
         );
         this.allDisplay.displayUstensil(
-          this.searchModel.getUstensils(
-            this.searchModel.getListeRecette(searchInput.value)
-          )
+          this.searchModel.getUstensils(searchInput.value)
         );
       } else {
-        this.searchResult.innerHTML = "";
+        if (this.tags.length == 0) {
+          this.searchResult.innerHTML = "";
+        } else {
+          this.allDisplay.search("", this.tags);
+        }
         this.card.recipeDisplay(recipes);
         this.allDisplay.displayIngredient(
           this.searchModel.getIngredients(recipes)
@@ -70,11 +89,13 @@ export class Control {
       if (applianceInput.value.length >= 1) {
         menuAppliances.innerHTML = "";
         this.allDisplay.displayAppliance(
-          this.searchModel.searchApplianceList(applianceInput.value)
+          this.searchModel.searchApplianceList(applianceInput.value, recipes)
         );
       } else {
         menuAppliances.innerHTML = "";
-        this.allDisplay.displayAppliance(this.searchModel.getAppliances());
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances(recipes)
+        );
       }
     });
   }
@@ -85,35 +106,12 @@ export class Control {
       if (ustensilInput.value.length >= 1) {
         menuUstensils.innerHTML = "";
         this.allDisplay.displayUstensil(
-          this.searchModel.searchUstensilList(ustensilInput.value)
+          this.searchModel.searchUstensilList(ustensilInput.value, recipes)
         );
       } else {
         menuUstensils.innerHTML = "";
-        this.allDisplay.displayUstensil(this.searchModel.getUstensils());
+        this.allDisplay.displayUstensil(this.searchModel.getUstensils(recipes));
       }
     });
   }
-
-  // AddTag() {
-  //   this.filterTag = [];
-  //   let blueColor = 'blue';
-  //   let greenColor = 'green';
-  //   let redColor = 'red';
-  //   let dropdownEl = document.querySelectorAll('.dropdown-item');
-  //   for (let element of dropdownEl) {
-  //     element.addEventListener('click', (e) => {
-  //       if (element.classList[3] == 'ingredient-item') {
-  //         this.tags.createTag(blueColor, element.innerHTML);
-  //       } else if (element.classList[3] == 'appliance-item') {
-  //         this.tags.createTag(greenColor, element.innerHTML);
-  //       } else if (element.classList[3] == 'ustensil-item') {
-  //         this.tags.createTag(redColor, element.innerHTML);
-  //       }
-  //       this.searchResult.innerHTML = '';
-  //       this.tagList.add(element);
-  //       this.filterTag = this.datarecipe.searchByTag(element.innerHTML);
-  //       this.recipe(this.filterTag);
-  //     });
-  //   }
-  // }
 }

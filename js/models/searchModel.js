@@ -6,8 +6,10 @@ export class SearchModel {
   }
 
   getIngredients(liste) {
+    let listeRecette = this.getListeRecette(liste);
+
     this.arrayIngredients = [];
-    liste.forEach((recipe) =>
+    listeRecette.forEach((recipe) =>
       recipe.ingredients.forEach((el) =>
         this.arrayIngredients.push(el.ingredient.toLowerCase())
       )
@@ -18,8 +20,10 @@ export class SearchModel {
   }
 
   getAppliances(liste) {
+    let listeRecette = this.getListeRecette(liste);
+
     this.arrayAppliance = [];
-    liste.forEach((recipe) => {
+    listeRecette.forEach((recipe) => {
       this.arrayAppliance.push(recipe.appliance.toLowerCase());
     });
     this.arrayAppliance = [...new Set(this.arrayAppliance)];
@@ -28,8 +32,10 @@ export class SearchModel {
   }
 
   getUstensils(liste) {
+    let listeRecette = this.getListeRecette(liste);
+
     this.arrayUstensils = [];
-    liste.forEach((recipe) =>
+    listeRecette.forEach((recipe) =>
       recipe.ustensils.forEach((ustensil) =>
         this.arrayUstensils.push(ustensil.toLowerCase())
       )
@@ -39,25 +45,52 @@ export class SearchModel {
     return this.arrayUstensils;
   }
 
-  getListeRecette(motRecherche) {
+  getListeRecette(motRecherche, tags) {
     this.arrayRecipe = [];
-    this.search(motRecherche).forEach((recipes) => {
+    this.search(motRecherche, tags).forEach((recipes) => {
       this.arrayRecipe.push(recipes);
     });
 
     return this.arrayRecipe;
   }
 
-  search(motRecherche) {
+  search(motRecherche, tags) {
     let motTrouve = [];
-    motTrouve = this.datas.filter(
-      (el) =>
-        el.name.toLowerCase().includes(motRecherche) ||
-        el.description.toLowerCase().includes(motRecherche) ||
-        el.ingredients.find((unIngredient) =>
-          unIngredient.ingredient.toLowerCase().includes(motRecherche)
-        )
-    );
+
+    console.log(tags);
+
+    if (tags.length > 0) {
+      tags.forEach((unTag) => {
+        motTrouve.push(
+          this.datas.filter(
+            (el) =>
+              el.name.toLowerCase().includes(unTag) ||
+              el.description.toLowerCase().includes(unTag) ||
+              el.ingredients.find((unIngredient) =>
+                unIngredient.ingredient.toLowerCase().includes(unTag)
+              )
+          )
+        );
+      });
+
+      motTrouve = motTrouve.filter(
+        (el) =>
+          el.name.toLowerCase().includes(motRecherche) ||
+          el.description.toLowerCase().includes(motRecherche) ||
+          el.ingredients.find((unIngredient) =>
+            unIngredient.ingredient.toLowerCase().includes(motRecherche)
+          )
+      );
+    } else {
+      motTrouve = this.datas.filter(
+        (el) =>
+          el.name.toLowerCase().includes(motRecherche) ||
+          el.description.toLowerCase().includes(motRecherche) ||
+          el.ingredients.find((unIngredient) =>
+            unIngredient.ingredient.toLowerCase().includes(motRecherche)
+          )
+      );
+    }
     return motTrouve;
   }
 
