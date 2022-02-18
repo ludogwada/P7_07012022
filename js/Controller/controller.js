@@ -30,22 +30,20 @@ export class Control {
           this.searchModel.getUstensils(searchInput.value, tags)
         );
       } else {
-        if (tags.length == 0) {
-          this.searchResult.innerHTML = "";
-        } else {
-          this.allDisplay.search("", tags);
-        }
-        this.card.recipeDisplay(recipes);
+        this.allDisplay.search("", tags);
         this.allDisplay.displayIngredient(
-          this.searchModel.getIngredients(recipes)
+          this.searchModel.getIngredients("", tags)
         );
         this.allDisplay.displayAppliance(
-          this.searchModel.getAppliances(recipes)
+          this.searchModel.getAppliances("", tags)
         );
-        this.allDisplay.displayUstensil(this.searchModel.getUstensils(recipes));
+        this.allDisplay.displayUstensil(
+          this.searchModel.getUstensils("", tags)
+        );
       }
     });
   }
+
   eventIngredient() {
     let ingredientInput = document.getElementById("inputIngredient");
     let menuIngredients = document.querySelector(".menuIngredients");

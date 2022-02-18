@@ -67,28 +67,26 @@ export class SearchModel {
           )
         );
       });
-      if (motRecherche.length >= 3) {
-        motTrouve.push(
-          motTrouve.filter(
+      if (motRecherche.length) {
+        motTrouve = motTrouve
+          .flat()
+          .filter(
             (el) =>
               el.name.toLowerCase().includes(motRecherche) ||
               el.description.toLowerCase().includes(motRecherche) ||
               el.ingredients.find((unIngredient) =>
                 unIngredient.ingredient.toLowerCase().includes(motRecherche)
               )
-          )
-        );
+          );
       }
     } else {
-      motTrouve.push(
-        this.datas.filter(
-          (el) =>
-            el.name.toLowerCase().includes(motRecherche) ||
-            el.description.toLowerCase().includes(motRecherche) ||
-            el.ingredients.find((unIngredient) =>
-              unIngredient.ingredient.toLowerCase().includes(motRecherche)
-            )
-        )
+      motTrouve = this.datas.filter(
+        (el) =>
+          el.name.toLowerCase().includes(motRecherche) ||
+          el.description.toLowerCase().includes(motRecherche) ||
+          el.ingredients.find((unIngredient) =>
+            unIngredient.ingredient.toLowerCase().includes(motRecherche)
+          )
       );
     }
     return motTrouve.flat();
