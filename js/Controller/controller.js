@@ -3,6 +3,8 @@ import { Card } from "./Card.js";
 import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
 
+let tags = [];
+console.log(tags);
 export class Control {
   constructor() {
     this.searchModel = new SearchModel();
@@ -17,13 +19,31 @@ export class Control {
     let searchInput = document.querySelector("#search");
     searchInput.addEventListener("input", () => {
       if (searchInput.value.length >= 3) {
-        this.allDisplay.search(searchInput.value);
+        this.allDisplay.search(searchInput.value, tags);
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients(searchInput.value, tags)
+        );
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances(searchInput.value, tags)
+        );
+        this.allDisplay.displayUstensil(
+          this.searchModel.getUstensils(searchInput.value, tags)
+        );
       } else {
-        this.searchResult.innerHTML = "";
-        this.card.recipeDisplay(recipes);
+        this.allDisplay.search("", tags);
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients("", tags)
+        );
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances("", tags)
+        );
+        this.allDisplay.displayUstensil(
+          this.searchModel.getUstensils("", tags)
+        );
       }
     });
   }
+
   eventIngredient() {
     let ingredientInput = document.getElementById("inputIngredient");
     let menuIngredients = document.querySelector(".menuIngredients");
@@ -35,7 +55,9 @@ export class Control {
         );
       } else {
         menuIngredients.innerHTML = "";
-        this.allDisplay.displayIngredient(this.searchModel.getIngredients());
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients("", "")
+        );
       }
     });
   }
@@ -50,7 +72,9 @@ export class Control {
         );
       } else {
         menuAppliances.innerHTML = "";
-        this.allDisplay.displayAppliance(this.searchModel.getAppliances());
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances("", "")
+        );
       }
     });
   }
@@ -65,31 +89,47 @@ export class Control {
         );
       } else {
         menuUstensils.innerHTML = "";
-        this.allDisplay.displayUstensil(this.searchModel.getUstensils());
+        this.allDisplay.displayUstensil(this.searchModel.getUstensils("", ""));
       }
     });
   }
+  addTag() {
+    let dropdownElement = document.querySelectorAll(".dropdown-item");
+    for (let element of dropdownElement) {
+      element.addEventListener("click", (e) => {
+        if (element.classList[3] == "ingredient-item") {
+          this.allDisplay.createTag("blue", element.innerHTML);
+        } else if (element.classList[3] == "appliance-item") {
+          this.allDisplay.createTag("green", element.innerHTML);
+        } else if (element.classList[3] == "ustensil-item") {
+          this.allDisplay.createTag("red", element.innerHTML);
+        }
+        tags.push(element.innerHTML);
+        this.allDisplay.search("", tags);
+        this.allDisplay.displayIngredient(
+          this.searchModel.getIngredients("", tags)
+        );
+        this.allDisplay.displayAppliance(
+          this.searchModel.getAppliances("", tags)
+        );
+        this.allDisplay.displayUstensil(
+          this.searchModel.getUstensils("", tags)
+        );
+      });
+    }
+  }
 
-  // AddTag() {
-  //   this.filterTag = [];
-  //   let blueColor = 'blue';
-  //   let greenColor = 'green';
-  //   let redColor = 'red';
-  //   let dropdownEl = document.querySelectorAll('.dropdown-item');
-  //   for (let element of dropdownEl) {
-  //     element.addEventListener('click', (e) => {
-  //       if (element.classList[3] == 'ingredient-item') {
-  //         this.tags.createTag(blueColor, element.innerHTML);
-  //       } else if (element.classList[3] == 'appliance-item') {
-  //         this.tags.createTag(greenColor, element.innerHTML);
-  //       } else if (element.classList[3] == 'ustensil-item') {
-  //         this.tags.createTag(redColor, element.innerHTML);
-  //       }
-  //       this.searchResult.innerHTML = '';
-  //       this.tagList.add(element);
-  //       this.filterTag = this.datarecipe.searchByTag(element.innerHTML);
-  //       this.recipe(this.filterTag);
-  //     });
-  //   }
+  removeTag() {
+    //TODO
+    let listeTags = document.getElementById("tags");
+    // let cross = listeTags.querySelectorAll(".js-cross");
+    //     if (tags > 0) {
+    //       for(let cross of listeTags.children[0]){
+    // cross
+    //       }
+  }
+
+  // for (let cross of listeTags) {
+  //   cross.addEventListener("click", console.log("hihihi"));
   // }
 }

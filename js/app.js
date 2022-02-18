@@ -14,15 +14,17 @@ class App {
 
   main() {
     this.card.recipeDisplay(recipes);
-    this.display.displayIngredient(this.searchModels.getIngredients());
-    this.display.displayAppliance(this.searchModels.getAppliances());
-    this.display.displayUstensil(this.searchModels.getUstensils());
+    this.display.displayIngredient(this.searchModels.getIngredients("", ""));
+    this.display.displayAppliance(this.searchModels.getAppliances("", ""));
+    this.display.displayUstensil(this.searchModels.getUstensils("", ""));
   }
   search() {
     this.control.eventSearchBar();
     this.control.eventIngredient();
     this.control.eventAppliance();
     this.control.eventUstensil();
+    this.control.addTag();
+    this.control.removeTag();
   }
 }
 
