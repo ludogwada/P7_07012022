@@ -5,9 +5,8 @@ export class SearchModel {
     this.datas = recipes;
   }
 
-  getIngredients(liste) {
-    let listeRecette = this.getListeRecette(liste);
-
+  getIngredients(motRecherche, tags) {
+    let listeRecette = this.getListeRecette(motRecherche, tags);
     this.arrayIngredients = [];
     listeRecette.forEach((recipe) =>
       recipe.ingredients.forEach((el) =>
@@ -19,9 +18,8 @@ export class SearchModel {
     return this.arrayIngredients;
   }
 
-  getAppliances(liste) {
-    let listeRecette = this.getListeRecette(liste);
-
+  getAppliances(motRecherche, tags) {
+    let listeRecette = this.getListeRecette(motRecherche, tags);
     this.arrayAppliance = [];
     listeRecette.forEach((recipe) => {
       this.arrayAppliance.push(recipe.appliance.toLowerCase());
@@ -31,9 +29,8 @@ export class SearchModel {
     return this.arrayAppliance;
   }
 
-  getUstensils(liste) {
-    let listeRecette = this.getListeRecette(liste);
-
+  getUstensils(motRecherche, tags) {
+    let listeRecette = this.getListeRecette(motRecherche, tags);
     this.arrayUstensils = [];
     listeRecette.forEach((recipe) =>
       recipe.ustensils.forEach((ustensil) =>
@@ -57,8 +54,6 @@ export class SearchModel {
   search(motRecherche, tags) {
     let motTrouve = [];
 
-    console.log(tags);
-
     if (tags.length > 0) {
       tags.forEach((unTag) => {
         motTrouve.push(
@@ -72,31 +67,36 @@ export class SearchModel {
           )
         );
       });
-
-      motTrouve = motTrouve.filter(
-        (el) =>
-          el.name.toLowerCase().includes(motRecherche) ||
-          el.description.toLowerCase().includes(motRecherche) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(motRecherche)
+      if (motRecherche > 0) {
+        motTrouve.push(
+          motTrouve.filter(
+            (el) =>
+              el.name.toLowerCase().includes(motRecherche) ||
+              el.description.toLowerCase().includes(motRecherche) ||
+              el.ingredients.find((unIngredient) =>
+                unIngredient.ingredient.toLowerCase().includes(motRecherche)
+              )
           )
-      );
+        );
+      }
     } else {
-      motTrouve = this.datas.filter(
-        (el) =>
-          el.name.toLowerCase().includes(motRecherche) ||
-          el.description.toLowerCase().includes(motRecherche) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(motRecherche)
-          )
+      motTrouve.push(
+        this.datas.filter(
+          (el) =>
+            el.name.toLowerCase().includes(motRecherche) ||
+            el.description.toLowerCase().includes(motRecherche) ||
+            el.ingredients.find((unIngredient) =>
+              unIngredient.ingredient.toLowerCase().includes(motRecherche)
+            )
+        )
       );
     }
-    return motTrouve;
+    return motTrouve.flat();
   }
 
-  searchIngredientList(ingredientRecherche, liste) {
+  searchIngredientList(ingredientRecherche) {
     let ingredientTrouve = [];
-    let ingredientList = this.getIngredients(liste);
+    let ingredientList = this.getIngredients("", "");
     ingredientTrouve = ingredientList.filter((ingredient) =>
       ingredient.includes(ingredientRecherche)
     );
@@ -104,7 +104,7 @@ export class SearchModel {
   }
   searchApplianceList(applianceRecherche) {
     let applianceTrouve = [];
-    let applianceList = this.getAppliances();
+    let applianceList = this.getAppliances("", "");
     applianceTrouve = applianceList.filter((appliance) =>
       appliance.includes(applianceRecherche)
     );
@@ -112,7 +112,7 @@ export class SearchModel {
   }
   searchUstensilList(ustensilRecherche) {
     let ustensilTrouve = [];
-    let ustensilList = this.getUstensils();
+    let ustensilList = this.getUstensils("", "");
     ustensilTrouve = ustensilList.filter((ustensil) =>
       ustensil.includes(ustensilRecherche)
     );

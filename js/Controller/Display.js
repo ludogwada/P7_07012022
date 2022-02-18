@@ -8,7 +8,7 @@ export class AllDisplay {
     this.listAppareils = document.querySelector(".menuAppliances");
     this.listUstensils = document.querySelector(".menuUstensils");
     this.searchResult = document.querySelector(".js-card");
-    this.tags = document.getElementById("tags");
+    this.tagsList = document.getElementById("tags");
 
     this.searchModel = new SearchModel();
     this.card = new Card();
@@ -80,7 +80,7 @@ export class AllDisplay {
     tagIcon.setAttribute("class", "mx-1 far fa-times-circle fa-lg js-cross");
     tagIcon.setAttribute("type", "button");
 
-    this.tags.appendChild(tag);
+    this.tagsList.appendChild(tag);
     tag.appendChild(tagText);
     tag.appendChild(tagIcon);
   }
