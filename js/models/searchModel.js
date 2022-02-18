@@ -67,7 +67,7 @@ export class SearchModel {
           )
         );
       });
-      if (motRecherche > 0) {
+      if (motRecherche.length >= 3) {
         motTrouve.push(
           motTrouve.filter(
             (el) =>

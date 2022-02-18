@@ -3,6 +3,8 @@ import { Card } from "./Card.js";
 import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
 
+let tags = [];
+console.log(tags);
 export class Control {
   constructor() {
     this.searchModel = new SearchModel();
@@ -10,7 +12,6 @@ export class Control {
     this.card = new Card();
 
     this.searchResult = document.querySelector(".js-card");
-    this.tags = [];
   }
 
   /*EVENT LISTENER*/
@@ -18,21 +19,21 @@ export class Control {
     let searchInput = document.querySelector("#search");
     searchInput.addEventListener("input", () => {
       if (searchInput.value.length >= 3) {
-        this.allDisplay.search(searchInput.value, this.tags);
+        this.allDisplay.search(searchInput.value, tags);
         this.allDisplay.displayIngredient(
-          this.searchModel.getIngredients(searchInput.value, this.tags)
+          this.searchModel.getIngredients(searchInput.value, tags)
         );
         this.allDisplay.displayAppliance(
-          this.searchModel.getAppliances(searchInput.value, this.tags)
+          this.searchModel.getAppliances(searchInput.value, tags)
         );
         this.allDisplay.displayUstensil(
-          this.searchModel.getUstensils(searchInput.value, this.tags)
+          this.searchModel.getUstensils(searchInput.value, tags)
         );
       } else {
-        if (this.tags.length == 0) {
+        if (tags.length == 0) {
           this.searchResult.innerHTML = "";
         } else {
-          this.allDisplay.search("", this.tags);
+          this.allDisplay.search("", tags);
         }
         this.card.recipeDisplay(recipes);
         this.allDisplay.displayIngredient(
@@ -105,16 +106,16 @@ export class Control {
         } else if (element.classList[3] == "ustensil-item") {
           this.allDisplay.createTag("red", element.innerHTML);
         }
-        this.tags.push(element.innerHTML);
-        this.allDisplay.search("", this.tags);
+        tags.push(element.innerHTML);
+        this.allDisplay.search("", tags);
         this.allDisplay.displayIngredient(
-          this.searchModel.getIngredients("", this.tags)
+          this.searchModel.getIngredients("", tags)
         );
         this.allDisplay.displayAppliance(
-          this.searchModel.getAppliances("", this.tags)
+          this.searchModel.getAppliances("", tags)
         );
         this.allDisplay.displayUstensil(
-          this.searchModel.getUstensils("", this.tags)
+          this.searchModel.getUstensils("", tags)
         );
       });
     }
@@ -124,7 +125,7 @@ export class Control {
     //TODO
     let listeTags = document.getElementById("tags");
     // let cross = listeTags.querySelectorAll(".js-cross");
-    //     if (this.tags > 0) {
+    //     if (tags > 0) {
     //       for(let cross of listeTags.children[0]){
     // cross
     //       }
