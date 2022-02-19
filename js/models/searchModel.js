@@ -59,8 +59,10 @@ export class SearchModel {
         motTrouve.push(
           this.datas.filter(
             (el) =>
-              el.name.toLowerCase().includes(unTag) ||
-              el.description.toLowerCase().includes(unTag) ||
+              el.appliance.toLowerCase().includes(unTag) ||
+              el.ustensils.find((unUstensil) =>
+                unUstensil.toLowerCase().includes(unTag)
+              ) ||
               el.ingredients.find((unIngredient) =>
                 unIngredient.ingredient.toLowerCase().includes(unTag)
               )
@@ -92,25 +94,25 @@ export class SearchModel {
     return motTrouve.flat();
   }
 
-  searchIngredientList(ingredientRecherche) {
+  searchIngredientList(ingredientRecherche, tags) {
     let ingredientTrouve = [];
-    let ingredientList = this.getIngredients("", "");
+    let ingredientList = this.getIngredients("", tags);
     ingredientTrouve = ingredientList.filter((ingredient) =>
       ingredient.includes(ingredientRecherche)
     );
     return ingredientTrouve;
   }
-  searchApplianceList(applianceRecherche) {
+  searchApplianceList(applianceRecherche, tags) {
     let applianceTrouve = [];
-    let applianceList = this.getAppliances("", "");
+    let applianceList = this.getAppliances("", tags);
     applianceTrouve = applianceList.filter((appliance) =>
       appliance.includes(applianceRecherche)
     );
     return applianceTrouve;
   }
-  searchUstensilList(ustensilRecherche) {
+  searchUstensilList(ustensilRecherche, tags) {
     let ustensilTrouve = [];
-    let ustensilList = this.getUstensils("", "");
+    let ustensilList = this.getUstensils("", tags);
     ustensilTrouve = ustensilList.filter((ustensil) =>
       ustensil.includes(ustensilRecherche)
     );

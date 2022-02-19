@@ -1,6 +1,7 @@
 import { recipes } from "../../data/recipes.js";
 import { SearchModel } from "../models/searchModel.js";
 import { Card } from "./Card.js";
+import { Control } from "./controller.js";
 
 export class AllDisplay {
   constructor() {

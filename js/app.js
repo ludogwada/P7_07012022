@@ -6,7 +6,7 @@ import { SearchModel } from "./models/searchModel.js";
 
 class App {
   constructor() {
-    this.searchModels = new SearchModel();
+    this.searchModel = new SearchModel();
     this.control = new Control();
     this.display = new AllDisplay();
     this.card = new Card();
@@ -14,9 +14,9 @@ class App {
 
   main() {
     this.card.recipeDisplay(recipes);
-    this.display.displayIngredient(this.searchModels.getIngredients("", ""));
-    this.display.displayAppliance(this.searchModels.getAppliances("", ""));
-    this.display.displayUstensil(this.searchModels.getUstensils("", ""));
+    this.display.displayIngredient(this.searchModel.getIngredients("", ""));
+    this.display.displayAppliance(this.searchModel.getAppliances("", ""));
+    this.display.displayUstensil(this.searchModel.getUstensils("", ""));
   }
   search() {
     this.control.eventSearchBar();
@@ -24,7 +24,6 @@ class App {
     this.control.eventAppliance();
     this.control.eventUstensil();
     this.control.addTag();
-    this.control.removeTag();
   }
 }
 

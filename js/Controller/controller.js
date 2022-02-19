@@ -4,7 +4,7 @@ import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
 
 let tags = [];
-console.log(tags);
+
 export class Control {
   constructor() {
     this.searchModel = new SearchModel();
@@ -51,12 +51,12 @@ export class Control {
       if (ingredientInput.value.length >= 1) {
         menuIngredients.innerHTML = "";
         this.allDisplay.displayIngredient(
-          this.searchModel.searchIngredientList(ingredientInput.value)
+          this.searchModel.searchIngredientList(ingredientInput.value, tags)
         );
       } else {
         menuIngredients.innerHTML = "";
         this.allDisplay.displayIngredient(
-          this.searchModel.getIngredients("", "")
+          this.searchModel.getIngredients("", tags)
         );
       }
     });
@@ -68,12 +68,12 @@ export class Control {
       if (applianceInput.value.length >= 1) {
         menuAppliances.innerHTML = "";
         this.allDisplay.displayAppliance(
-          this.searchModel.searchApplianceList(applianceInput.value)
+          this.searchModel.searchApplianceList(applianceInput.value, tags)
         );
       } else {
         menuAppliances.innerHTML = "";
         this.allDisplay.displayAppliance(
-          this.searchModel.getAppliances("", "")
+          this.searchModel.getAppliances("", tags)
         );
       }
     });
@@ -85,16 +85,20 @@ export class Control {
       if (ustensilInput.value.length >= 1) {
         menuUstensils.innerHTML = "";
         this.allDisplay.displayUstensil(
-          this.searchModel.searchUstensilList(ustensilInput.value)
+          this.searchModel.searchUstensilList(ustensilInput.value, tags)
         );
       } else {
         menuUstensils.innerHTML = "";
-        this.allDisplay.displayUstensil(this.searchModel.getUstensils("", ""));
+        this.allDisplay.displayUstensil(
+          this.searchModel.getUstensils("", tags)
+        );
       }
     });
   }
   addTag() {
-    let dropdownElement = document.querySelectorAll(".dropdown-item");
+    this.allDisplay.displayIngredient(this.searchModel.getIngredients("", ""));
+
+    let dropdownElement = this.searchModel.arrayIngredients;
     for (let element of dropdownElement) {
       element.addEventListener("click", (e) => {
         if (element.classList[3] == "ingredient-item") {
@@ -116,6 +120,7 @@ export class Control {
           this.searchModel.getUstensils("", tags)
         );
       });
+      console.log(element);
     }
   }
 
