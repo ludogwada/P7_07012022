@@ -23,7 +23,6 @@ class App {
     this.control.eventIngredient();
     this.control.eventAppliance();
     this.control.eventUstensil();
-    this.control.addTag();
   }
 }
 

@@ -3,8 +3,6 @@ import { Card } from "./Card.js";
 import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
 
-let tags = [];
-
 export class Control {
   constructor() {
     this.searchModel = new SearchModel();
@@ -94,34 +92,6 @@ export class Control {
         );
       }
     });
-  }
-  addTag() {
-    this.allDisplay.displayIngredient(this.searchModel.getIngredients("", ""));
-
-    let dropdownElement = this.searchModel.arrayIngredients;
-    for (let element of dropdownElement) {
-      element.addEventListener("click", (e) => {
-        if (element.classList[3] == "ingredient-item") {
-          this.allDisplay.createTag("blue", element.innerHTML);
-        } else if (element.classList[3] == "appliance-item") {
-          this.allDisplay.createTag("green", element.innerHTML);
-        } else if (element.classList[3] == "ustensil-item") {
-          this.allDisplay.createTag("red", element.innerHTML);
-        }
-        tags.push(element.innerHTML);
-        this.allDisplay.search("", tags);
-        this.allDisplay.displayIngredient(
-          this.searchModel.getIngredients("", tags)
-        );
-        this.allDisplay.displayAppliance(
-          this.searchModel.getAppliances("", tags)
-        );
-        this.allDisplay.displayUstensil(
-          this.searchModel.getUstensils("", tags)
-        );
-      });
-      console.log(element);
-    }
   }
 
   removeTag() {

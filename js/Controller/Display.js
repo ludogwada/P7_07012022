@@ -1,7 +1,8 @@
 import { recipes } from "../../data/recipes.js";
 import { SearchModel } from "../models/searchModel.js";
 import { Card } from "./Card.js";
-import { Control } from "./controller.js";
+
+let tags = [];
 
 export class AllDisplay {
   constructor() {
@@ -38,6 +39,9 @@ export class AllDisplay {
       listElement.setAttribute("style", "width: 190px");
       listElement.innerHTML = `${e}`;
       this.listIngredient.appendChild(listElement);
+      listElement.addEventListener("click", (e) => {
+        this.addTag(listElement);
+      });
     });
   }
 
@@ -52,6 +56,9 @@ export class AllDisplay {
       listElement.setAttribute("style", "width: 190px");
       listElement.innerHTML = `${e}`;
       this.listAppareils.appendChild(listElement);
+      listElement.addEventListener("click", (e) => {
+        this.addTag(listElement);
+      });
     });
   }
 
@@ -66,6 +73,9 @@ export class AllDisplay {
       listElement.setAttribute("style", "width: 190px");
       listElement.innerHTML = `${e}`;
       this.listUstensils.appendChild(listElement);
+      listElement.addEventListener("click", (e) => {
+        this.addTag(listElement);
+      });
     });
   }
   createTag(color, value) {
@@ -80,9 +90,38 @@ export class AllDisplay {
 
     tagIcon.setAttribute("class", "mx-1 far fa-times-circle fa-lg js-cross");
     tagIcon.setAttribute("type", "button");
+    tagIcon.addEventListener("click", (e) => {
+      this.deleteTag(tag);
+    });
 
     this.tagsList.appendChild(tag);
     tag.appendChild(tagText);
     tag.appendChild(tagIcon);
+  }
+
+  addTag(element) {
+    if (element.classList[3] == "ingredient-item") {
+      this.createTag("blue", element.innerHTML);
+    } else if (element.classList[3] == "appliance-item") {
+      this.createTag("green", element.innerHTML);
+    } else if (element.classList[3] == "ustensil-item") {
+      this.createTag("red", element.innerHTML);
+    }
+    tags.push(element.innerHTML);
+    this.search("", tags);
+    this.displayIngredient(this.searchModel.getIngredients("", tags));
+    this.displayAppliance(this.searchModel.getAppliances("", tags));
+    this.displayUstensil(this.searchModel.getUstensils("", tags));
+    // console.log(tags.indexOf(element));
+  }
+
+  deleteTag(element) {
+    element.remove();
+    // tags.splice(0, tags.findIndex(element));
+    this.search("", tags);
+    this.displayIngredient(this.searchModel.getIngredients("", tags));
+    this.displayAppliance(this.searchModel.getAppliances("", tags));
+    this.displayUstensil(this.searchModel.getUstensils("", tags));
+    console.log(tags);
   }
 }
