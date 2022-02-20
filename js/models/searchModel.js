@@ -55,21 +55,10 @@ export class SearchModel {
     let motTrouve = [];
 
     if (tags.length > 0) {
-      tags.forEach((unTag) => {
-        motTrouve.push(
-          this.datas.filter(
-            (el) =>
-              el.appliance.toLowerCase().includes(unTag) ||
-              el.ustensils.find((unUstensil) =>
-                unUstensil.toLowerCase().includes(unTag)
-              ) ||
-              el.ingredients.find((unIngredient) =>
-                unIngredient.ingredient.toLowerCase().includes(unTag)
-              )
-          )
-        );
-      });
-      if (motRecherche.length) {
+      motTrouve.push(this.searchByTag(tags[0]));
+      if (tags.length > 1) {
+        motTrouve = this.searchByAllTags(tags, motTrouve);
+      } else if (motRecherche.length) {
         motTrouve = motTrouve
           .flat()
           .filter(
@@ -117,5 +106,39 @@ export class SearchModel {
       ustensil.includes(ustensilRecherche)
     );
     return ustensilTrouve;
+  }
+  searchByTag(tags) {
+    let recetteFiltreTag = [];
+    recetteFiltreTag.push(
+      this.datas.filter(
+        (el) =>
+          el.appliance.toLowerCase().includes(tags) ||
+          el.ustensils.find((unUstensil) =>
+            unUstensil.toLowerCase().includes(tags)
+          ) ||
+          el.ingredients.find((unIngredient) =>
+            unIngredient.ingredient.toLowerCase().includes(tags)
+          )
+      )
+    );
+    return recetteFiltreTag.flat();
+  }
+  searchByAllTags(tags, listeRecette) {
+    let recetteFiltreTag = [];
+    tags.forEach((unTag) => {
+      recetteFiltreTag = listeRecette
+        .flat()
+        .filter(
+          (el) =>
+            el.appliance.toLowerCase().includes(unTag) ||
+            el.ustensils.find((unUstensil) =>
+              unUstensil.toLowerCase().includes(unTag)
+            ) ||
+            el.ingredients.find((unIngredient) =>
+              unIngredient.ingredient.toLowerCase().includes(unTag)
+            )
+        );
+    });
+    return recetteFiltreTag.flat();
   }
 }

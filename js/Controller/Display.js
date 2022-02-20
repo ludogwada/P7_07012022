@@ -2,7 +2,7 @@ import { recipes } from "../../data/recipes.js";
 import { SearchModel } from "../models/searchModel.js";
 import { Card } from "./Card.js";
 
-let tags = [];
+export let tags = [];
 
 export class AllDisplay {
   constructor() {
@@ -107,21 +107,24 @@ export class AllDisplay {
     } else if (element.classList[3] == "ustensil-item") {
       this.createTag("red", element.innerHTML);
     }
-    tags.push(element.innerHTML);
-    this.search("", tags);
-    this.displayIngredient(this.searchModel.getIngredients("", tags));
-    this.displayAppliance(this.searchModel.getAppliances("", tags));
-    this.displayUstensil(this.searchModel.getUstensils("", tags));
-    // console.log(tags.indexOf(element));
-  }
-
-  deleteTag(element) {
-    element.remove();
-    // tags.splice(0, tags.findIndex(element));
+    tags.push(element.innerText);
     this.search("", tags);
     this.displayIngredient(this.searchModel.getIngredients("", tags));
     this.displayAppliance(this.searchModel.getAppliances("", tags));
     this.displayUstensil(this.searchModel.getUstensils("", tags));
     console.log(tags);
+  }
+
+  deleteTag(element) {
+    let elementSupprime = element;
+    tags = tags.filter(function (f) {
+      return f !== elementSupprime.innerText;
+    });
+
+    elementSupprime.remove();
+    this.search("", tags);
+    this.displayIngredient(this.searchModel.getIngredients("", tags));
+    this.displayAppliance(this.searchModel.getAppliances("", tags));
+    this.displayUstensil(this.searchModel.getUstensils("", tags));
   }
 }

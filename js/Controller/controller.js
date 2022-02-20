@@ -1,7 +1,7 @@
-import { recipes } from "../../data/recipes.js";
 import { Card } from "./Card.js";
 import { SearchModel } from "../models/searchModel.js";
 import { AllDisplay } from "./Display.js";
+import { tags } from "./Display.js";
 
 export class Control {
   constructor() {
@@ -93,18 +93,4 @@ export class Control {
       }
     });
   }
-
-  removeTag() {
-    //TODO
-    let listeTags = document.getElementById("tags");
-    // let cross = listeTags.querySelectorAll(".js-cross");
-    //     if (tags > 0) {
-    //       for(let cross of listeTags.children[0]){
-    // cross
-    //       }
-  }
-
-  // for (let cross of listeTags) {
-  //   cross.addEventListener("click", console.log("hihihi"));
-  // }
 }
