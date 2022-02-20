@@ -57,7 +57,9 @@ export class SearchModel {
     if (tags.length > 0) {
       motTrouve.push(this.searchByTag(tags[0]));
       if (tags.length > 1) {
-        motTrouve = this.searchByAllTags(tags, motTrouve);
+        tags.forEach((unTag) => {
+          motTrouve = this.searchByAllTags(unTag, motTrouve);
+        });
       } else if (motRecherche.length) {
         motTrouve = motTrouve
           .flat()
@@ -123,22 +125,20 @@ export class SearchModel {
     );
     return recetteFiltreTag.flat();
   }
-  searchByAllTags(tags, listeRecette) {
+  searchByAllTags(unTag, listeRecette) {
     let recetteFiltreTag = [];
-    tags.forEach((unTag) => {
-      recetteFiltreTag = listeRecette
-        .flat()
-        .filter(
-          (el) =>
-            el.appliance.toLowerCase().includes(unTag) ||
-            el.ustensils.find((unUstensil) =>
-              unUstensil.toLowerCase().includes(unTag)
-            ) ||
-            el.ingredients.find((unIngredient) =>
-              unIngredient.ingredient.toLowerCase().includes(unTag)
-            )
-        );
-    });
+    recetteFiltreTag = listeRecette
+      .flat()
+      .filter(
+        (el) =>
+          el.appliance.toLowerCase().includes(unTag) ||
+          el.ustensils.find((unUstensil) =>
+            unUstensil.toLowerCase().includes(unTag)
+          ) ||
+          el.ingredients.find((unIngredient) =>
+            unIngredient.ingredient.toLowerCase().includes(unTag)
+          )
+      );
     return recetteFiltreTag.flat();
   }
 }
