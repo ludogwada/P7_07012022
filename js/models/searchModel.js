@@ -44,9 +44,9 @@ export class SearchModel {
 
   getListeRecette(motRecherche, tags) {
     this.arrayRecipe = [];
-    this.search(motRecherche, tags).forEach((recipes) => {
+    for (let recipes of this.search(motRecherche, tags)) {
       this.arrayRecipe.push(recipes);
-    });
+    }
 
     return this.arrayRecipe;
   }
@@ -61,28 +61,44 @@ export class SearchModel {
           motTrouve = this.searchByAllTags(unTag, motTrouve);
         });
       } else if (motRecherche.length) {
-        motTrouve = motTrouve
-          .flat()
-          .filter(
-            (el) =>
-              el.name.toLowerCase().includes(motRecherche) ||
-              el.description.toLowerCase().includes(motRecherche) ||
-              el.ingredients.find((unIngredient) =>
-                unIngredient.ingredient.toLowerCase().includes(motRecherche)
-              )
-          );
+        motTrouve = motTrouve.flat();
+        for (let i = 0; i < motTrouve.length; i++) {
+          if (
+            motTrouve[i].name.includes(motRecherche) ||
+            motTrouve[i].description.includes(motRecherche) ||
+            motTrouve[i].ingredients.find((unIngredient) =>
+              unIngredient.ingredient.includes(motRecherche)
+            )
+          ) {
+            motTrouve.push(motTrouve[i]);
+          }
+        }
+        return motTrouve.flat();
       }
     } else {
-      motTrouve = this.datas.filter(
-        (el) =>
-          el.name.toLowerCase().includes(motRecherche) ||
-          el.description.toLowerCase().includes(motRecherche) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(motRecherche)
+      for (let i = 0; i < this.datas.length; i++) {
+        if (
+          this.datas[i].name.includes(motRecherche) ||
+          this.datas[i].description.includes(motRecherche) ||
+          this.datas[i].ingredients.find((unIngredient) =>
+            unIngredient.ingredient.includes(motRecherche)
           )
-      );
+        ) {
+          motTrouve.push(this.datas[i]);
+        }
+      }
+      return motTrouve;
     }
-    return motTrouve.flat();
+
+    //   motTrouve = this.datas.filter(
+    //     (el) =>
+    //       el.name.toLowerCase().includes(motRecherche) ||
+    //       el.description.toLowerCase().includes(motRecherche) ||
+    //       el.ingredients.find((unIngredient) =>
+    //         unIngredient.ingredient.toLowerCase().includes(motRecherche)
+    //       )
+    //   );
+    // }
   }
 
   searchIngredientList(ingredientRecherche, tags) {
