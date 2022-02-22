@@ -48,7 +48,7 @@ export class SearchModel {
       this.arrayRecipe.push(recipes);
     }
 
-    return this.arrayRecipe;
+    return this.arrayRecipe.flat();
   }
 
   search(motRecherche, tags) {
@@ -61,7 +61,7 @@ export class SearchModel {
           motTrouve = this.searchByAllTags(unTag, motTrouve);
         });
       } else if (motRecherche.length) {
-        motTrouve = motTrouve.flat();
+        motTrouve = motTrouve;
         for (let i = 0; i < motTrouve.length; i++) {
           if (
             motTrouve[i].name.includes(motRecherche) ||
@@ -73,7 +73,7 @@ export class SearchModel {
             motTrouve.push(motTrouve[i]);
           }
         }
-        return motTrouve.flat();
+        return motTrouve;
       }
     } else {
       for (let i = 0; i < this.datas.length; i++) {
@@ -90,15 +90,7 @@ export class SearchModel {
       return motTrouve;
     }
 
-    //   motTrouve = this.datas.filter(
-    //     (el) =>
-    //       el.name.toLowerCase().includes(motRecherche) ||
-    //       el.description.toLowerCase().includes(motRecherche) ||
-    //       el.ingredients.find((unIngredient) =>
-    //         unIngredient.ingredient.toLowerCase().includes(motRecherche)
-    //       )
-    //   );
-    // }
+    return motTrouve.flat();
   }
 
   searchIngredientList(ingredientRecherche, tags) {
@@ -143,18 +135,18 @@ export class SearchModel {
   }
   searchByAllTags(unTag, listeRecette) {
     let recetteFiltreTag = [];
-    recetteFiltreTag = listeRecette
-      .flat()
-      .filter(
-        (el) =>
-          el.appliance.toLowerCase().includes(unTag) ||
-          el.ustensils.find((unUstensil) =>
-            unUstensil.toLowerCase().includes(unTag)
-          ) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(unTag)
-          )
-      );
-    return recetteFiltreTag.flat();
+    let listeFiltre = listeRecette.flat();
+    for (let i = 0; i < listeFiltre.length; i++) {
+      if (
+        listeFiltre[i].name.includes(unTag) ||
+        listeFiltre[i].description.includes(unTag) ||
+        listeFiltre[i].ingredients.find((unIngredient) =>
+          unIngredient.ingredient.includes(unTag)
+        )
+      )
+        recetteFiltreTag.push(listeFiltre[i]);
+
+      return recetteFiltreTag.flat();
+    }
   }
 }
