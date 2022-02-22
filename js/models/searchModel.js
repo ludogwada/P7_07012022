@@ -55,13 +55,14 @@ export class SearchModel {
     let motTrouve = [];
 
     if (tags.length > 0) {
-      motTrouve.push(this.searchByTag(tags[0]));
+      motTrouve = this.searchByTag(tags[0]);
       if (tags.length > 1) {
         tags.forEach((unTag) => {
           motTrouve = this.searchByAllTags(unTag, motTrouve);
         });
-      } else if (motRecherche.length) {
-        motTrouve = motTrouve;
+      }
+      if (motRecherche.length) {
+        let listeTriee = [];
         for (let i = 0; i < motTrouve.length; i++) {
           if (
             motTrouve[i].name.includes(motRecherche) ||
@@ -70,9 +71,10 @@ export class SearchModel {
               unIngredient.ingredient.includes(motRecherche)
             )
           ) {
-            motTrouve.push(motTrouve[i]);
+            listeTriee.push(motTrouve[i]);
           }
         }
+        motTrouve = listeTriee;
         return motTrouve;
       }
     } else {
@@ -90,7 +92,7 @@ export class SearchModel {
       return motTrouve;
     }
 
-    return motTrouve.flat();
+    return motTrouve;
   }
 
   searchIngredientList(ingredientRecherche, tags) {
@@ -119,34 +121,31 @@ export class SearchModel {
   }
   searchByTag(tags) {
     let recetteFiltreTag = [];
-    recetteFiltreTag.push(
-      this.datas.filter(
-        (el) =>
-          el.appliance.toLowerCase().includes(tags) ||
-          el.ustensils.find((unUstensil) =>
-            unUstensil.toLowerCase().includes(tags)
-          ) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(tags)
-          )
-      )
+    recetteFiltreTag = this.datas.filter(
+      (el) =>
+        el.appliance.toLowerCase().includes(tags) ||
+        el.ustensils.find((unUstensil) =>
+          unUstensil.toLowerCase().includes(tags)
+        ) ||
+        el.ingredients.find((unIngredient) =>
+          unIngredient.ingredient.toLowerCase().includes(tags)
+        )
     );
-    return recetteFiltreTag.flat();
+    return recetteFiltreTag;
   }
   searchByAllTags(unTag, listeRecette) {
     let recetteFiltreTag = [];
-    let listeFiltre = listeRecette.flat();
-    for (let i = 0; i < listeFiltre.length; i++) {
+    for (let i = 0; i < listeRecette.length; i++) {
       if (
-        listeFiltre[i].name.includes(unTag) ||
-        listeFiltre[i].description.includes(unTag) ||
-        listeFiltre[i].ingredients.find((unIngredient) =>
-          unIngredient.ingredient.includes(unTag)
+        listeRecette[i].name.toLowerCase().includes(unTag) ||
+        listeRecette[i].description.toLowerCase().includes(unTag) ||
+        listeRecette[i].ingredients.find((unIngredient) =>
+          unIngredient.ingredient.toLowerCase().includes(unTag)
         )
-      )
-        recetteFiltreTag.push(listeFiltre[i]);
-
-      return recetteFiltreTag.flat();
+      ) {
+        recetteFiltreTag.push(listeRecette[i]);
+      }
     }
+    return recetteFiltreTag;
   }
 }

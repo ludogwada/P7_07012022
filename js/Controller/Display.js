@@ -112,7 +112,6 @@ export class AllDisplay {
     this.displayIngredient(this.searchModel.getIngredients("", tags));
     this.displayAppliance(this.searchModel.getAppliances("", tags));
     this.displayUstensil(this.searchModel.getUstensils("", tags));
-    console.log(tags);
   }
 
   deleteTag(element) {
