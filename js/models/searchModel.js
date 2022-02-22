@@ -65,10 +65,10 @@ export class SearchModel {
         let listeTriee = [];
         for (let i = 0; i < motTrouve.length; i++) {
           if (
-            motTrouve[i].name.includes(motRecherche) ||
-            motTrouve[i].description.includes(motRecherche) ||
+            motTrouve[i].name.toLowerCase().includes(motRecherche) ||
+            motTrouve[i].description.toLowerCase().includes(motRecherche) ||
             motTrouve[i].ingredients.find((unIngredient) =>
-              unIngredient.ingredient.includes(motRecherche)
+              unIngredient.ingredient.toLowerCase().includes(motRecherche)
             )
           ) {
             listeTriee.push(motTrouve[i]);
@@ -80,10 +80,10 @@ export class SearchModel {
     } else {
       for (let i = 0; i < this.datas.length; i++) {
         if (
-          this.datas[i].name.includes(motRecherche) ||
-          this.datas[i].description.includes(motRecherche) ||
+          this.datas[i].name.toLowerCase().includes(motRecherche) ||
+          this.datas[i].description.toLowerCase().includes(motRecherche) ||
           this.datas[i].ingredients.find((unIngredient) =>
-            unIngredient.ingredient.includes(motRecherche)
+            unIngredient.ingredient.toLowerCase().includes(motRecherche)
           )
         ) {
           motTrouve.push(this.datas[i]);
@@ -137,8 +137,10 @@ export class SearchModel {
     let recetteFiltreTag = [];
     for (let i = 0; i < listeRecette.length; i++) {
       if (
-        listeRecette[i].name.toLowerCase().includes(unTag) ||
-        listeRecette[i].description.toLowerCase().includes(unTag) ||
+        listeRecette[i].appliance.toLowerCase().includes(unTag) ||
+        listeRecette[i].ustensils.find((unUstensil) =>
+          unUstensil.toLowerCase().includes(unTag)
+        ) ||
         listeRecette[i].ingredients.find((unIngredient) =>
           unIngredient.ingredient.toLowerCase().includes(unTag)
         )
