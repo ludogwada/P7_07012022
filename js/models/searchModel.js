@@ -55,23 +55,21 @@ export class SearchModel {
     let motTrouve = [];
 
     if (tags.length > 0) {
-      motTrouve.push(this.searchByTag(tags[0]));
+      motTrouve = this.searchByTag(tags[0]);
       if (tags.length > 1) {
         tags.forEach((unTag) => {
           motTrouve = this.searchByAllTags(unTag, motTrouve);
         });
       }
       if (motRecherche.length) {
-        motTrouve = motTrouve
-          .flat()
-          .filter(
-            (el) =>
-              el.name.toLowerCase().includes(motRecherche) ||
-              el.description.toLowerCase().includes(motRecherche) ||
-              el.ingredients.find((unIngredient) =>
-                unIngredient.ingredient.toLowerCase().includes(motRecherche)
-              )
-          );
+        motTrouve = motTrouve.filter(
+          (el) =>
+            el.name.toLowerCase().includes(motRecherche) ||
+            el.description.toLowerCase().includes(motRecherche) ||
+            el.ingredients.find((unIngredient) =>
+              unIngredient.ingredient.toLowerCase().includes(motRecherche)
+            )
+        );
       }
     } else {
       motTrouve = this.datas.filter(
@@ -83,7 +81,7 @@ export class SearchModel {
           )
       );
     }
-    return motTrouve.flat();
+    return motTrouve;
   }
 
   searchIngredientList(ingredientRecherche, tags) {
@@ -112,34 +110,30 @@ export class SearchModel {
   }
   searchByTag(tags) {
     let recetteFiltreTag = [];
-    recetteFiltreTag.push(
-      this.datas.filter(
-        (el) =>
-          el.appliance.toLowerCase().includes(tags) ||
-          el.ustensils.find((unUstensil) =>
-            unUstensil.toLowerCase().includes(tags)
-          ) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(tags)
-          )
-      )
+    recetteFiltreTag = this.datas.filter(
+      (el) =>
+        el.appliance.toLowerCase().includes(tags) ||
+        el.ustensils.find((unUstensil) =>
+          unUstensil.toLowerCase().includes(tags)
+        ) ||
+        el.ingredients.find((unIngredient) =>
+          unIngredient.ingredient.toLowerCase().includes(tags)
+        )
     );
-    return recetteFiltreTag.flat();
+    return recetteFiltreTag;
   }
   searchByAllTags(unTag, listeRecette) {
     let recetteFiltreTag = [];
-    recetteFiltreTag = listeRecette
-      .flat()
-      .filter(
-        (el) =>
-          el.appliance.toLowerCase().includes(unTag) ||
-          el.ustensils.find((unUstensil) =>
-            unUstensil.toLowerCase().includes(unTag)
-          ) ||
-          el.ingredients.find((unIngredient) =>
-            unIngredient.ingredient.toLowerCase().includes(unTag)
-          )
-      );
-    return recetteFiltreTag.flat();
+    recetteFiltreTag = listeRecette.filter(
+      (el) =>
+        el.appliance.toLowerCase().includes(unTag) ||
+        el.ustensils.find((unUstensil) =>
+          unUstensil.toLowerCase().includes(unTag)
+        ) ||
+        el.ingredients.find((unIngredient) =>
+          unIngredient.ingredient.toLowerCase().includes(unTag)
+        )
+    );
+    return recetteFiltreTag;
   }
 }
