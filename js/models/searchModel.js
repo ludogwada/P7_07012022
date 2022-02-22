@@ -60,7 +60,8 @@ export class SearchModel {
         tags.forEach((unTag) => {
           motTrouve = this.searchByAllTags(unTag, motTrouve);
         });
-      } else if (motRecherche.length) {
+      }
+      if (motRecherche.length) {
         motTrouve = motTrouve
           .flat()
           .filter(
