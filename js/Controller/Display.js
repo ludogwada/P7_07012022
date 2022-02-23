@@ -108,10 +108,7 @@ export class AllDisplay {
       this.createTag("red", element.innerHTML);
     }
     tags.push(element.innerText);
-    this.search("", tags);
-    this.displayIngredient(this.searchModel.getIngredients("", tags));
-    this.displayAppliance(this.searchModel.getAppliances("", tags));
-    this.displayUstensil(this.searchModel.getUstensils("", tags));
+    this.displayInfos();
   }
 
   deleteTag(element) {
@@ -121,9 +118,15 @@ export class AllDisplay {
     });
 
     elementSupprime.remove();
-    this.search("", tags);
-    this.displayIngredient(this.searchModel.getIngredients("", tags));
-    this.displayAppliance(this.searchModel.getAppliances("", tags));
-    this.displayUstensil(this.searchModel.getUstensils("", tags));
+    this.displayInfos();
+  }
+
+  displayInfos() {
+    let searchInput = document.querySelector("#search");
+    let motRecherche = searchInput.value != undefined ? searchInput.value : "";
+    this.search(motRecherche, tags);
+    this.displayIngredient(this.searchModel.getIngredients(motRecherche, tags));
+    this.displayAppliance(this.searchModel.getAppliances(motRecherche, tags));
+    this.displayUstensil(this.searchModel.getUstensils(motRecherche, tags));
   }
 }
