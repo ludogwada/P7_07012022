@@ -1,4 +1,3 @@
-import { recipes } from "../../data/recipes.js";
 import { SearchModel } from "../models/searchModel.js";
 import { Card } from "./Card.js";
 
