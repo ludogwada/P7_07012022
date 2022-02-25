@@ -1,0 +1,137 @@
+<mxfile host="65bd71144e">
+    <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+        <mxGraphModel dx="1204" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" parent="1" source="QjZRmbvnqPqztiGZf44e-1" target="QjZRmbvnqPqztiGZf44e-2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-1" value="START" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="edgeStyle=none;html=1;" parent="1" source="QjZRmbvnqPqztiGZf44e-2" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-2" value="LISTE DE RECETTES" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="110" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-29" value="TRUE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;startArrow=none;" parent="1" source="6" target="QjZRmbvnqPqztiGZf44e-6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="FALSE" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6" target="QjZRmbvnqPqztiGZf44e-5" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="310" as="sourcePoint"/>
+                        <mxPoint x="240" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-5" value="&lt;font style=&quot;font-size: 9px&quot;&gt;PAS DE SOLUTION&amp;nbsp;&lt;br&gt;MESSAGE ERREUR&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="350" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" parent="1" source="6" target="QjZRmbvnqPqztiGZf44e-9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" parent="1" source="QjZRmbvnqPqztiGZf44e-6" target="QjZRmbvnqPqztiGZf44e-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-6" value="LISTE DE RECETTES A JOUR" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="460" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="edgeStyle=none;html=1;" parent="1" source="QjZRmbvnqPqztiGZf44e-7" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-7" value="&lt;font style=&quot;font-size: 10px&quot;&gt;CLIQUE SUR LA RECETTE&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="480" width="100" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="QjZRmbvnqPqztiGZf44e-8" target="16" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="520" y="820" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-8" value="RECHERCHE &lt;br&gt;PAR TAG" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="445" y="640" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" parent="1" source="QjZRmbvnqPqztiGZf44e-9" target="QjZRmbvnqPqztiGZf44e-8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-9" value="LISTE TAGS MISE A JOUR" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="430" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=none;html=1;" parent="1" source="16" target="QjZRmbvnqPqztiGZf44e-12" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="460" y="853.1578947368421" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" parent="1" source="QjZRmbvnqPqztiGZf44e-12" target="QjZRmbvnqPqztiGZf44e-14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-12" value="LISTE TAGS MISE A JOUR" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="810" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;entryX=0.067;entryY=0.938;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="QjZRmbvnqPqztiGZf44e-13" target="QjZRmbvnqPqztiGZf44e-9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="edgeStyle=none;html=1;entryX=0.558;entryY=0.813;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="QjZRmbvnqPqztiGZf44e-13" target="QjZRmbvnqPqztiGZf44e-6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-13" value="AFFICHAGE TAG&amp;nbsp;&lt;br&gt;FILTRE RECETTE&lt;br&gt;FILTRE TAG LISTE" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="555" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" parent="1" source="QjZRmbvnqPqztiGZf44e-14" target="QjZRmbvnqPqztiGZf44e-13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-14" value="&lt;font style=&quot;font-size: 10px&quot;&gt;CLIQUE SUR LE TAG&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="680" width="100" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="QjZRmbvnqPqztiGZf44e-30" value="" style="endArrow=classic;html=1;rounded=0;fontSize=9;exitX=1.008;exitY=0.413;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="QjZRmbvnqPqztiGZf44e-2" target="QjZRmbvnqPqztiGZf44e-8" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="330" y="50" as="sourcePoint"/>
+                        <mxPoint x="550" y="515" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="540" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="FIN" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="730" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.075;exitY=1.033;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="QjZRmbvnqPqztiGZf44e-8" target="QjZRmbvnqPqztiGZf44e-14" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="520" as="sourcePoint"/>
+                        <mxPoint x="390" y="520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="RESULTAT&amp;nbsp;&lt;br&gt;TROUVE" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="340" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="TRUE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;endArrow=none;" parent="1" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="280" as="sourcePoint"/>
+                        <mxPoint x="280" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="FALSE" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="12" target="QjZRmbvnqPqztiGZf44e-2" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="210" y="250" as="sourcePoint"/>
+                        <mxPoint x="190" y="170" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="150" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="&lt;span&gt;SAISIR &amp;gt;3 &lt;br&gt;CARACTERES BARRE DE RECHERCHE&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="172.5" y="220" width="195" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=classic;html=1;" parent="1" target="12" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="100" y="350" as="sourcePoint"/>
+                        <mxPoint x="150" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="&lt;span style=&quot;font-size: 10px&quot;&gt;SAISIR &lt;br&gt;MOT CLE&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 10px&quot;&gt;BARRE DE&lt;br&gt;&amp;nbsp;RECHERCHE &lt;br&gt;TAG&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="760" width="150" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
